@@ -3,7 +3,7 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-var app = angular.module('starter', ['ionic','ngCordova', 'starter.controllers'])
+var app = angular.module('starter', ['ionic', 'starter.controllers'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -18,15 +18,6 @@ var app = angular.module('starter', ['ionic','ngCordova', 'starter.controllers']
   });
 })
 
-
-
-app.run(function($cordovaStatusbar) {
-  $cordovaStatusbar.overlaysWebView(true)
-
-
-  $cordovaStatusBar.styleColor(black) //Black, transulcent
-
-})
 
 .config(function($stateProvider, $urlRouterProvider) {
 
@@ -48,25 +39,18 @@ app.run(function($cordovaStatusbar) {
   
     .state('suggestions', {
     url: '/suggestions',
-    views: {
-      'suggestions': {
-        templateUrl: 'templates/suggestions.html',
-        controller: 'SuggestionsCtrl'
-      }
-    }
+    templateUrl: 'templates/suggestions.html',
+    controller: 'SuggestionsCtrl'
+      
   })
     
     .state('details', {
     url: '/details',
-    views: {
-      'details': {
-        templateUrl: 'templates/details.html',
-        controller: 'DetailsCtrl'
-      }
-    }
+    templateUrl: 'templates/details.html',
+    controller: 'DetailsCtrl'
   });
   
-  $urlRouterProvider.otherwise('/landing');
+  $urlRouterProvider.otherwise('/likes');
   
 
 });

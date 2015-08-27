@@ -25,5 +25,6 @@ $scope.showAlert = function() {
 })
 
 
-.controller('SuggestionsCtrl', function($scope) {
+.controller('SuggestionsCtrl', function($scope, Movies) {
+    $scope.movies = Movies.all();
 });

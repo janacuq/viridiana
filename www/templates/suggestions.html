@@ -6,23 +6,18 @@
 </div>
  <ion-content class="padding">
 
- <div class="list card">
+ <div class="list card" ng-repeat="movie in movies">
  
 
-    <div class="item item-image">
-    <img src="https://upload.wikimedia.org/wikipedia/en/f/fa/While_We're_Young_(film)_POSTER.jpg">
+    <div class="item item-image" >
+    <img ng-src="{{movie.poster}}">
   </div>
    <a href="#/details" class="item item-icon-right dark" >
     <i class="ion-ios-arrow-right"></i>
-   Details
+     {{movie.title}}
   </a>
 </div>
-    <div class="list card">
-
-    <div class="item item-image">
-    <img src="https://upload.wikimedia.org/wikipedia/en/f/fa/While_We're_Young_(film)_POSTER.jpg">
-  </div>
-</div>
+ 
 </ion-content>
 
 

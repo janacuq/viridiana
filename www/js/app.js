@@ -3,7 +3,7 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-var app = angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
+var app = angular.module('starter', ['ionic', 'firebase',  'starter.controllers', 'starter.services'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -54,3 +54,17 @@ var app = angular.module('starter', ['ionic', 'starter.controllers', 'starter.se
   
 
 });
+
+
+app.service('imdb', function($firebase) {
+ 
+  
+var ref = new Firebase("https://viridiana.firebaseio.com");
+  ref.on('value', function (snapshot) {
+  
+  var data = snapshot.val();
+  console.log(data);
+ 
+  });
+});
+

@@ -15,6 +15,13 @@ var app = angular.module('starter', ['ionic', 'firebase',  'starter.controllers'
     if(window.StatusBar) {
       StatusBar.styleDefault();
     }
+    
+    var ref = new Firebase("https://viridiana.firebaseio.com/movies");
+  
+ 
+   ref.orderByChild("genres").on("child_added", function(snapshot) {
+  console.log(snapshot.val().title + " is " + snapshot.val().genres);
+}); 
   });
 })
 
@@ -56,15 +63,5 @@ var app = angular.module('starter', ['ionic', 'firebase',  'starter.controllers'
 });
 
 
-app.service('imdb', function($firebase) {
- 
-  
-var ref = new Firebase("https://viridiana.firebaseio.com");
-  ref.on('value', function (snapshot) {
-  
-  var data = snapshot.val();
-  console.log(data);
- 
-  });
-});
+
 

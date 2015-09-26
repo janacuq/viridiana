@@ -15,13 +15,22 @@ var app = angular.module('starter', ['ionic', 'firebase',  'starter.controllers'
     if(window.StatusBar) {
       StatusBar.styleDefault();
     }
-    
+     /*
     var ref = new Firebase("https://viridiana.firebaseio.com/movies");
   
  
-   ref.orderByChild("genres").on("child_added", function(snapshot) {
-  console.log(snapshot.val().title + " is " + snapshot.val().genres);
+   ref.orderByChild("poster").equalTo("N/A").on("child_added", function(snapshot) {
+  console.log(snapshot.key() + " is " +  snapshot.val().title + snapshot.val().poster);
 }); 
+   */
+      var ref2 = new Firebase("https://viridiana.firebaseio.com/likes");
+  
+ 
+   ref2.orderByChild("imdbRating").equalTo("7.0").on("child_added", function(snapshot) {
+  console.log(snapshot.val().title + " is " + snapshot.val().imdbRating);
+}); 
+    
+    
   });
 })
 

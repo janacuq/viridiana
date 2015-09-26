@@ -19,7 +19,7 @@ var app = angular.module('starter', ['ionic', 'firebase',  'starter.controllers'
     var ref = new Firebase("https://viridiana.firebaseio.com/movies");
   
  
-   ref.orderByChild("genres").on("child_added", function(snapshot) {
+   ref.orderByChild("genres").equalTo("Drama").on("child_added", function(snapshot) {
   console.log(snapshot.val().title + " is " + snapshot.val().genres);
 }); 
   });

@@ -23,12 +23,7 @@ var app = angular.module('starter', ['ionic', 'firebase',  'starter.controllers'
   console.log(snapshot.key() + " is " +  snapshot.val().title + snapshot.val().poster);
 }); 
    */
-      var ref2 = new Firebase("https://viridiana.firebaseio.com/likes");
-  
- 
-   ref2.orderByChild("imdbRating").equalTo("7.0").on("child_added", function(snapshot) {
-  console.log(snapshot.val().title + " is " + snapshot.val().imdbRating);
-}); 
+   
     
     
   });

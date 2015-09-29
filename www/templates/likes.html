@@ -1,16 +1,14 @@
 <ion-view view-title="likes">
 
-  <div class="bar bar-header bar-dark">
-    <a href="#/landing">
-      <button class="button button-icon ion-ios-arrow-left"></button>
-    </a>
-    <h1 class="title">Viridiana</h1>
-    <button ng-controller="PopupCtrl" ng-click="showAlert()" class="button button-icon ion-ios-help-outline"></button>
-  </div>
+ <button ng-controller="PopupCtrl" ng-click="showAlert()" class="button button-icon ion-ios-help-outline"></button>
+
+ 
+
   <ion-content>
     <div class="row row-center">
       <div class="picture col">
-        <img class="main" src="https://upload.wikimedia.org/wikipedia/en/f/fa/While_We're_Young_(film)_POSTER.jpg">
+        <img class="main" ng-src="{{currentMovie.poster}}">
+        
       </div>
     </div>
     <div class="row row-bottom">
@@ -19,7 +17,7 @@
         <a class="button ion-ios-checkmark-empty button-balanced" href="#/suggestions"></a>
 
       </div>
-
+    
     </div>
 
   </ion-content>

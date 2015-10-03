@@ -1,20 +1,21 @@
 <ion-view view-title="likes">
 
- <button ng-controller="PopupCtrl" ng-click="showAlert()" class="button button-icon ion-ios-help-outline"></button>
+ <button ng-controller="PopupCtrl" ng-init="showAlert()" class="button button-icon ion-ios-help-outline"></button>
 
  
 
   <ion-content>
     <div class="row row-center">
       <div class="picture col">
-        <img class="main" ng-src="{{currentMovie.poster}}">
+        <img class="main" src="http://ia.media-imdb.com/images/M/MV5BMjQwNDYyNTk2N15BMl5BanBnXkFtZTgwMjQ0OTMyMjE@._V1_SX300.jpg" ng-src="{{currentMovie.poster}}">
         
       </div>
     </div>
     <div class="row row-bottom">
       <div class="button-bar">
-        <a class="button ion-ios-close-empty button-energized"></a>
-        <a class="button ion-ios-checkmark-empty button-balanced" href="#/suggestions"></a>
+        <a class="button ion-ios-close-empty button-energized" ng-click="next_movie()"></a>
+        <a class="button ion-ios-checkmark-empty button-balanced" ng-click="save_movie($currentMovie)"></a>
+        
 
       </div>
     

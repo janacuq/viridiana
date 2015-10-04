@@ -1,7 +1,7 @@
 angular.module('starter.controllers', [])
 
 .controller('LandingCtrl', function ($scope) {})
-  .controller('LikesCtrl', ["$scope", "$firebaseArray","$location", function ($scope, $firebaseArray, $location) {
+  .controller('LikesCtrl', ["$scope", "$firebaseArray", "$location", function ($scope, $firebaseArray, $location) {
 
     var ref2 = new Firebase("https://viridiana.firebaseio.com/likes");
 
@@ -9,28 +9,28 @@ angular.module('starter.controllers', [])
     $scope.final_movies = null;
     $scope.currentMovie = null;
     window.skope = $scope;
-  
+
     var liked_movies = [];
     var array_of_genres = ["genres/War", "genres/Thriller", "genres/Romance", "genres/Animation"];
 
     var counter = 0;
     var array_of_selected_movies = [];
 
-    $scope.pass_data = function(final_movies){
-      
+    $scope.pass_data = function (final_movies) {
+
       $location.url('suggestions');
-       
+
       console.log($scope.final_movies);
-    
-       $scope.$broadcast('myCustomEvent',{
-        final_movies           // 'Data to send'
-        
-        });
-      
-      
+
+    //  $scope.$broadcast('myCustomEvent', {
+      //  final_movies // 'Data to send'
+
+    //  });
+
+
     };
-    
-    
+
+
     $scope.get_one_movie_per_genre = function (array) {
 
       for (i = 0; i < array.length; i++) {
@@ -68,17 +68,14 @@ angular.module('starter.controllers', [])
 
       counter++;
 
-      if(counter === 3){
-      $scope.final_movies = liked_movies;
-      $scope.pass_data();
-       
-        
+      if (counter === 3) {
+        $scope.final_movies = liked_movies;
+        $scope.pass_data();
+
+
       } else {
-     
-        console.log(liked_movies[0].genres);
-        
-        
-        
+
+
         $scope.next_movie();
       }
     };
@@ -101,8 +98,8 @@ angular.module('starter.controllers', [])
       };
     };
 
-    
-   
+
+
 
 
 
@@ -129,14 +126,16 @@ angular.module('starter.controllers', [])
 .controller('SuggestionsCtrl', function ($scope, Movies) {
   $scope.movies = Movies.all();
   console.log($scope.my_genres);
- 
+
+
+  /*
    $scope.$on('myCustomEvent', function (event, data) {
   
    final_movies
    
    for (i=0; i < final_movies.length; i++){
    
-   final_movies[i].genres  =  my_genres
+   final_movies[i].genres  =  objeto
    
    }
    
@@ -184,12 +183,5 @@ angular.module('starter.controllers', [])
       console.log(array_of_selected_movies);
 
     };
-
-  
-  
-  
-  
-  
-  
-  
+    */
 });

@@ -20,8 +20,37 @@ angular.module('starter.controllers', [])
 
       $location.url('suggestions');
 
-      console.log($scope.final_movies);
-
+    
+      
+      var array_of_objects = [];
+      for(i=0; i < $scope.final_movies.length; i++){
+        
+        var genres_to_match = $scope.final_movies[i].genres;
+        array_of_objects.push(genres_to_match);
+      
+      }
+      
+      console.log(array_of_objects);
+       
+        var myarray = [];
+       for( var i = 0; i < array_of_objects.length; i++ ) {
+           var obj = array_of_objects[i];
+           for (var prop in obj) {
+                  var id = prop
+                 
+                 myarray.push(id);
+                 
+               }
+            
+           }
+       
+    console.log(myarray);
+      
+      var counts = {};
+myarray.forEach(function(x) { counts[x] = (counts[x] || 0)+1; });
+      console.log(counts);
+      
+      
     //  $scope.$broadcast('myCustomEvent', {
       //  final_movies // 'Data to send'
 
@@ -112,7 +141,7 @@ angular.module('starter.controllers', [])
   $scope.showAlert = function () {
     var alertPopup = $ionicPopup.alert({
       title: 'Welcome!',
-      template: 'To get started tap if you like the movie, swipe right if you do not!',
+      template: 'To get started tap if you like the movie, swipe right if you do not lskjdflsjflwef jflweflwejflw jef lwej flwejl!',
       okText: 'Got it!',
       okType: 'button button-light'
     });
@@ -125,17 +154,45 @@ angular.module('starter.controllers', [])
 
 .controller('SuggestionsCtrl', function ($scope, Movies) {
   $scope.movies = Movies.all();
-  console.log($scope.my_genres);
+
 
 
   /*
+  
+  
+  Action: true
+Adventure: true
+Animation: true
+Biography: true
+Comedy: true
+Crime: true
+Documentary: true
+Drama: true
+Family: true
+Fantasy: true
+History: true
+Horror: true
+Music: true
+Musical: true
+Mystery: true
+News: true
+Romance: true
+Sci-Fi: true
+Short: true
+Sport: true
+Thriller: true
+War: true
+
+
    $scope.$on('myCustomEvent', function (event, data) {
   
    final_movies
    
    for (i=0; i < final_movies.length; i++){
    
-   final_movies[i].genres  =  objeto
+   final_movies[i].genres  =  new array;
+   
+   if ()
    
    }
    

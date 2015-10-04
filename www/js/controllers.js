@@ -9,56 +9,13 @@ angular.module('starter.controllers', [])
     $scope.final_movies = null;
     $scope.currentMovie = null;
     window.skope = $scope;
-
-    var liked_movies = [];
-    var array_of_genres = ["genres/War", "genres/Thriller", "genres/Romance", "genres/Animation"];
-
     var counter = 0;
     var array_of_selected_movies = [];
-
-    $scope.pass_data = function (final_movies) {
-
-      $location.url('suggestions');
-
+    var liked_movies = [];
     
-      
-      var array_of_objects = [];
-      for(i=0; i < $scope.final_movies.length; i++){
-        
-        var genres_to_match = $scope.final_movies[i].genres;
-        array_of_objects.push(genres_to_match);
-      
-      }
-      
-      console.log(array_of_objects);
-       
-        var myarray = [];
-       for( var i = 0; i < array_of_objects.length; i++ ) {
-           var obj = array_of_objects[i];
-           for (var prop in obj) {
-                  var id = prop
-                 
-                 myarray.push(id);
-                 
-               }
-            
-           }
-       
-    console.log(myarray);
-      
-      var counts = {};
-myarray.forEach(function(x) { counts[x] = (counts[x] || 0)+1; });
-      console.log(counts);
-      
-      
-    //  $scope.$broadcast('myCustomEvent', {
-      //  final_movies // 'Data to send'
-
-    //  });
-
-
-    };
-
+    var genres_to_search = ["genres/War", "genres/Thriller", "genres/Romance", "genres/Animation"];
+    
+   
 
     $scope.get_one_movie_per_genre = function (array) {
 
@@ -71,11 +28,8 @@ myarray.forEach(function(x) { counts[x] = (counts[x] || 0)+1; });
           var rand = Math.floor(Math.random() * snapshot.numChildren());
           snapshot.forEach(function (selected_snapshot) {
             if (i == rand) {
-              // console.log(selected_snapshot.val().title);
-
               array_of_selected_movies.push(selected_snapshot.val())
             }
-
             i++;
           });
 
@@ -85,11 +39,64 @@ myarray.forEach(function(x) { counts[x] = (counts[x] || 0)+1; });
 
       }
       return array_of_selected_movies;
-      console.log(array_of_selected_movies);
+    };
+
+     $scope.get_one_movie_per_genre(genres_to_search);
+
+    $scope.pass_data = function (final_movies) {
+
+      $location.url('suggestions');
+
+      var array_of_objects = [];
+      for (i = 0; i < $scope.final_movies.length; i++) {
+       
+        array_of_objects.push($scope.final_movies[i].genres);
+      }
+
+      
+      var myarray = [];
+      for (var i = 0; i < array_of_objects.length; i++) {
+        var obj = array_of_objects[i];
+        for (var prop in obj) {
+          var id = prop
+          myarray.push(id);
+          }
+        
+      }
+      console.log(myarray);
+    
+            
+      var genres_by_points = sortProperties(count_each_genre(myarray));
+      
+      console.log(genres_by_points);
+      
+      
+      
+      function count_each_genre(array) {
+      
+      var counts = {};
+      array.forEach(function (x) {
+        counts[x] = (counts[x] || 0) + 1;
+      });
+        return counts;
+      };
+ 
+      function sortProperties(obj){
+    var sortable=[];
+    for(var key in obj)
+        if(obj.hasOwnProperty(key))
+            sortable.push([key, obj[key]]);
+    sortable.sort(function(a, b)
+    {
+      return b[1]-a[1]; 
+    });
+    return sortable; 
+      }
 
     };
 
-    $scope.get_one_movie_per_genre(array_of_genres);
+
+    
 
     $scope.save_movie = function (currentMovie) {
 
@@ -100,11 +107,7 @@ myarray.forEach(function(x) { counts[x] = (counts[x] || 0)+1; });
       if (counter === 3) {
         $scope.final_movies = liked_movies;
         $scope.pass_data();
-
-
       } else {
-
-
         $scope.next_movie();
       }
     };
@@ -115,12 +118,11 @@ myarray.forEach(function(x) { counts[x] = (counts[x] || 0)+1; });
       console.log($scope.currentMovie.imdbID)
       for (i = 0; i < array_of_selected_movies.length; i++) {
 
-        var next = i + 1;
+        var next = i + 1; //not working!
 
         if (array_of_selected_movies[i].imdbID === $scope.currentMovie.imdbID) {
 
           $scope.currentMovie = array_of_selected_movies[3];
-          console.log($scope.currentMovie.imdbID)
 
         }
 

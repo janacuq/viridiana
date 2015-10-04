@@ -60,7 +60,8 @@ a {
 }
 
 .main {
-  
+  width: 90%;
+  height: 90%;
   max-width: 300px;
   max-height: 449px;
 -webkit-box-shadow: 5px 5px 2px 0px rgba(0,0,0,0.2);
@@ -68,7 +69,8 @@ a {
 box-shadow:  5px 5px 2px 0px rgba(0,0,0,0.2);
   border-radius: 3px;
   opacity: 0.5;
-  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .card {
@@ -76,16 +78,14 @@ box-shadow:  5px 5px 2px 0px rgba(0,0,0,0.2);
   height: 100%;
 }
 
-.ion-ios-help-outline {
-  font-size: 2rem;
-  float: right;
-  color: white;
-}
 
-.button-bar > .button:last-child {
-font-size: 2rem important!;
+
+.button-bar {
+font-size: 2rem;
+color: lightgrey;
 }
 
 .bar.bar-dark {
-border-color: $stable:
+border-color: $stable;
+  width: 90%;
 }

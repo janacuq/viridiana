@@ -43,7 +43,7 @@ angular.module('starter.controllers', [])
 
      $scope.get_one_movie_per_genre(genres_to_search);
 
-    $scope.pass_data = function (final_movies) {
+    $scope.pass_data = function () {
 
       $location.url('suggestions');
 

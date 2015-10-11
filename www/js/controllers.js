@@ -14,12 +14,10 @@ angular.module('starter.controllers', [])
     var liked_movies = [];
     
     var genres_to_search = ["genres/War", "genres/Thriller", "genres/Romance", "genres/Animation"];
-    
-   
 
     $scope.get_one_movie_per_genre = function (array) {
 
-      for (i = 0; i < array.length; i++) {
+      for (var i = 0; i < array.length; i++) {
 
         var queryRef = ref2.orderByChild(array[i]).equalTo(true).limitToFirst(20);
 
@@ -46,7 +44,16 @@ angular.module('starter.controllers', [])
     $scope.pass_data = function () {
 
       $location.url('suggestions');
+      
+      // var genresByPoints = {};
+      // loop through the movies
+         // loop through the genres
+            // increment the value for that genre
+            //  genresByPoints[genre] = genresByPoints[genre] + 1;
+      
 
+      // underscore.js
+      
       var array_of_objects = [];
       for (i = 0; i < $scope.final_movies.length; i++) {
        
@@ -64,7 +71,7 @@ angular.module('starter.controllers', [])
         
       }
       console.log(myarray);
-    
+          
             
       var genres_by_points = sortProperties(count_each_genre(myarray));
       
@@ -82,14 +89,16 @@ angular.module('starter.controllers', [])
       };
  
       function sortProperties(obj){
-    var sortable=[];
+    var sortable={};
     for(var key in obj)
         if(obj.hasOwnProperty(key))
-            sortable.push([key, obj[key]]);
-    sortable.sort(function(a, b)
+            sortable[key] = obj[key];
+   
+        /*sortable.sort(function(a, b)
     {
       return b[1]-a[1]; 
     });
+    */
     return sortable; 
       }
 
@@ -115,24 +124,15 @@ angular.module('starter.controllers', [])
 
     $scope.next_movie = function () {
 
-      console.log($scope.currentMovie.imdbID)
-      for (i = 0; i < array_of_selected_movies.length; i++) {
-
-        var next = i + 1; //not working!
-
+      for (var i = 0; i < array_of_selected_movies.length; i++) {
+    
         if (array_of_selected_movies[i].imdbID === $scope.currentMovie.imdbID) {
-
-          $scope.currentMovie = array_of_selected_movies[3];
-
+          $scope.currentMovie = array_of_selected_movies[i+1];
+          return;
         }
 
       };
     };
-
-
-
-
-
 
 }])
 
@@ -157,8 +157,10 @@ angular.module('starter.controllers', [])
 .controller('SuggestionsCtrl', function ($scope, Movies) {
   $scope.movies = Movies.all();
 
-
-
+  
+            
+          
+          
   /*
   
   
@@ -186,25 +188,20 @@ Thriller: true
 War: true
 
 
-   $scope.$on('myCustomEvent', function (event, data) {
-  
-   final_movies
-   
-   for (i=0; i < final_movies.length; i++){
-   
-   final_movies[i].genres  =  new array;
-   
-   if ()
-   
-   }
-   
-     
-      // 'Data to send'
-    
-});
+
   
   
   var ref = new Firebase("https://viridiana.firebaseio.com/movies");
+
+ var ref = new Firebase("https://viridiana.firebaseio.com/spanish");
+  
+  ref.orderByChild("poster").equalTo("N/A").on("child_added", function (snapshot) {
+
+  console.log(snapshot.val().title + " " +JSON.stringify(snapshot.val().poster));
+
+  });
+
+
 
     $scope.data = $firebaseArray(ref);
   

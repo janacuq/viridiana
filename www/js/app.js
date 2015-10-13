@@ -64,6 +64,19 @@ var app = angular.module('starter', ['ionic', 'firebase',  'starter.controllers'
   $urlRouterProvider.otherwise('/likes');
   
 
+})
+
+.filter('string', function() {
+
+  return function(obj) {
+      var array = [];
+    for(var prop in obj){
+      array.push(obj[prop]);  
+    }
+    var one = array.join(', ');
+     return one;
+  }
+
 });
 
 

@@ -28,9 +28,9 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 
 
 
-html, ion-nav-bar {
+html, ion-nav-bar,ion-nav-back-button,.button-clear,.ion-ios-arrow-left {
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
-  color: #f8ade7;
+  color: #f8ade7 !important;
   
 
 }
@@ -62,10 +62,10 @@ ion-content {
 .list-inset {
   
   .item{
-    background-color: $energized;
+    background-color: white;
     border-color: $stable;
     h3,p {
-    color: white;
+    color: grey;
     }
   }
 }
@@ -78,8 +78,8 @@ margin-left: auto;
 }
 .card .item{
  
-  color: $stable;
-  text-align: right;
+  color: grey;
+  text-align: left;
   
 }
 

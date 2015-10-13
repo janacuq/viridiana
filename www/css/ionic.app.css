@@ -7684,9 +7684,9 @@ a.button {
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
 
-html, ion-nav-bar {
+html, ion-nav-bar, ion-nav-back-button, .button-clear, .ion-ios-arrow-left {
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-  color: #f8ade7; }
+  color: #f8ade7 !important; }
 
 ion-content {
   background-color: #f6f4f2;
@@ -7707,10 +7707,10 @@ ion-content {
   opacity: 0.9; }
 
 .list-inset .item {
-  background-color: #b5dcff;
+  background-color: white;
   border-color: #f8ade7; }
   .list-inset .item h3, .list-inset .item p {
-    color: white; }
+    color: grey; }
 
 .padding .card {
   margin-left: auto;
@@ -7718,8 +7718,8 @@ ion-content {
   width: 70%; }
 
 .card .item {
-  color: #f8ade7;
-  text-align: right; }
+  color: grey;
+  text-align: left; }
 
 .button-bar {
   font-size: 2rem;

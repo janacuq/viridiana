@@ -10,10 +10,28 @@ angular.module('starter.services', [])
   var getGenres = function() {
     return genresToMatch;
   };
- 
+   var addSpanish = function(newObj){
+    spanish = newObj;
+  };
+  
+  var getSpanish = function() {
+    return spanish;
+  }; 
+  
+  
   return {
     addGenres: addGenres,
-    getGenres: getGenres,  
+    getGenres: getGenres, 
+    addSpanish: addSpanish,
+    getSpanish: getSpanish,
+    get: function(id) {
+      for(var i=0; i <spanish.length; i++) {
+        if (spanish[i].imdbID == id) {
+          return spanish[i];
+        }
+      }
+      return null;
+    }
   };
   
 })

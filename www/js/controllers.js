@@ -89,11 +89,10 @@ angular.module('starter.controllers', [])
 
 }])
 
-.controller('DetailsCtrl', function ($scope, $stateParams) {
+.controller('DetailsCtrl', function ($scope, $stateParams, Selection) {
   var imdbID = $stateParams.imdbID;
 
- 
-
+  $scope.spanish = Selection.get($stateParams.imdbID);
   
 })
 
@@ -149,6 +148,8 @@ angular.module('starter.controllers', [])
             }
             j++;
           });
+            Selection.addSpanish($scope.movies);
+
         });
      }
     };

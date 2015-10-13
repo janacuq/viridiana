@@ -37,55 +37,37 @@ angular.module('starter.controllers', [])
 
   $scope.pass_data = function () {
 
-      $location.url('suggestions');
+    $location.url('suggestions');
 
-      var genresByPoints = {};
-      var myGenres = [];
+    var genresByPoints = {};
+    var myGenres = [];
 
-      for (var i = 0; i < $scope.final_movies.length; i++) {
+    for (var i = 0; i < $scope.final_movies.length; i++) {
 
-        myGenres.push($scope.final_movies[i].genres);
+      myGenres.push($scope.final_movies[i].genres);
 
-      }
-
-      for (var i = 0; i < myGenres.length; i++) {
-
-        for (var prop in myGenres[i]) {
-
-          if (genresByPoints[prop] >= 1) {
-
-            genresByPoints[prop] = genresByPoints[prop] + 1;
-          } else {
-            genresByPoints[prop] = 1
-          }
-        }
-      }
-      console.log(myGenres)
-      console.log(genresByPoints);
-
-//  $scope.callToGenres = function () {
-    
-      Selection.addGenres(genresByPoints);
-//     };
-
-  };
-
-      /*
-  topGenres = [];
-  for(var prop in genresByPoints) {
-  var oneGenre = "genres/" + prop;
-  topGenres.push(oneGenre);
-  console.log(topGenres);
-      return topGenres
     }
 
- 
- */
+    for (var i = 0; i < myGenres.length; i++) {
+
+      for (var prop in myGenres[i]) {
+
+        if (genresByPoints[prop] >= 1) {
+
+          genresByPoints[prop] = genresByPoints[prop] + 1;
+        } else {
+          genresByPoints[prop] = 1
+        }
+      }
+    }
+  
+    Selection.addGenres(genresByPoints);
+  };
+
   
   $scope.save_movie = function (currentMovie) {
-    // Selection.like($scope.currentMovie)
+     //Selection.like($scope.currentMovie) - save currentMovie in the service directly
     liked_movies.push($scope.currentMovie);
-
     counter++;
 
     if (counter === 3) {
@@ -108,9 +90,11 @@ angular.module('starter.controllers', [])
 }])
 
 .controller('DetailsCtrl', function ($scope, $stateParams) {
-  debugger
   var imdbID = $stateParams.imdbID;
 
+ 
+
+  
 })
 
 
@@ -132,10 +116,20 @@ angular.module('starter.controllers', [])
 })
 
 
-.controller('SuggestionsCtrl', function ($scope, Movies, Selection) {
+.controller('SuggestionsCtrl', function ($scope, Selection) {
   $scope.movies = [];
 
-//  $scope.genres = Selection.getGenres();
+  $scope.genres = Selection.getGenres();
+  var topGenres = [];   
+  var getTopGenres = function(obj) {
+    for(var prop in obj) {
+    topGenres.push("genres/" + prop);
+      } 
+     return topGenres; 
+  };
+  
+  getTopGenres($scope.genres);
+ 
 
   var ref = new Firebase("https://viridiana.firebaseio.com/spanish");
   var randomMovies = function (array) {
@@ -146,18 +140,18 @@ angular.module('starter.controllers', [])
 
       queryRef.on("value", function (snapshot) {
 
-//        var j = 0;
-//        var rand = Math.floor(Math.random() * snapshot.numChildren());
+        var j = 0;
+        var rand = Math.floor(Math.random() * snapshot.numChildren());
         snapshot.forEach(function (selected_snapshot) {
-//            if (j == rand) {
+            if (j == rand) {
             $scope.movies.push(selected_snapshot.val());
-            $scope.$apply();
-//            }
-//            j++;
+             $scope.$apply();
+            }
+            j++;
           });
         });
      }
     };
-  randomMovies(["genres/Drama"]);
+  randomMovies(topGenres);
   
 });

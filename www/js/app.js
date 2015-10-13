@@ -56,7 +56,7 @@ var app = angular.module('starter', ['ionic', 'firebase',  'starter.controllers'
   })
     
     .state('details', {
-    url: '/details',
+    url: '/details/:imdbID',
     templateUrl: 'templates/details.html',
     controller: 'DetailsCtrl'
   });

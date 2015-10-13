@@ -1,5 +1,26 @@
 angular.module('starter.services', [])
 
+.service('Selection', function() {
+  var genresToMatch = {};
+  
+  var addGenres = function(newObj){
+    genresToMatch = newObj;
+  };
+  
+  var getGenres = function() {
+    return genresToMatch;
+  };
+  
+  return {
+    addGenres: addGenres,
+    getGenres: getGenres
+  };
+  
+})
+
+
+
+
 .factory('Movies', function() {
 
 var movies = [{
@@ -116,9 +137,50 @@ var movies = [{
   year: "2013"
 }];
 
+  
+  
 return {
+
   all: function() {
     return movies;
     }
   };
+})
+
+
+/*
+.factory('Selection', function() {
+  
+  var ref = new Firebase("https://viridiana.firebaseio.com/spanish");
+
+  $scope.data = $firebaseArray(ref);
+  
+  $scope.randomMovies = function (array) {
+
+    for (i = 0; i < array.length; i++) {
+
+      var queryRef = ref2.orderByChild(array[i]).equalTo(true).limitToFirst(20);
+
+      queryRef.on("value", function (snapshot) {
+
+        var i = 0;
+        var rand = Math.floor(Math.random() * snapshot.numChildren());
+        snapshot.forEach(function (selected_snapshot) {
+            if (i == rand) {
+            suggestions.push(selected_snapshot.val())
+            }
+            i++;
+          });
+
+          console.log(suggestions);
+        });
+     }
+        return suggestions;
+    };
+
+};
+
+
 });
+
+*/

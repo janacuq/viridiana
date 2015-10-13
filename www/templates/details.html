@@ -3,20 +3,20 @@
 
   <ion-content>
 
-    <div class="list list-inset">
-      <div class="item">
+    <div class="list list-inset" ng-repeat="movie in movies">
+      <div class="item item-text-wrap">
 
         <h3>Title</h3>
-        <p>Hola, estas solas?</p>
+        <p>{{movie.title[$index]}}</p>
 
       </div>
-      <div class="item">
+      <div class="item item-text-wrap">
 
         <h3>Year</h3>
         <p>1994</p>
 
       </div>
-      <div class="item">
+      <div class="item item-text-wrap">
 
         <h3>Director</h3>
         <p>Rosellini</p>
@@ -34,13 +34,13 @@
         <p>"Two imprisoned men gttttttt rhmlty rthgtkhkh h hkh kh rkhglethyvgtgg"</p>
 
       </div>
-      <div class="item">
+      <div class="item item-text-wrap">
 
         <h3>Imdb</h3>
         <p>8.6</p>
 
       </div>
-      <div class="item">
+      <div class="item item-text-wrap">
 
         <h3>Rotten Tomatoes</h3>
         <p>7.8</p>

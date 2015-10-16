@@ -2,7 +2,7 @@ angular.module('starter.controllers', [])
 
 .controller('LandingCtrl', function ($scope) {})
 
-.controller('LikesCtrl', ["$scope", "$firebaseArray", "$location", "Selection", function ($scope, $firebaseArray, $location, Selection) {
+.controller('LikesCtrl', ["$scope", "$firebaseArray", "$location", "Selection", "$http", function ($scope, $firebaseArray, $location, Selection, $http) {
 
  var ref2 = new Firebase("https://viridiana.firebaseio.com/likes");
 
@@ -15,6 +15,13 @@ angular.module('starter.controllers', [])
  var liked_movies = [];
  var movieGenres = ["genres/War", "genres/Thriller", "genres/Romance", "genres/Animation", "genres/Crime", "genres/Fantasy", "genres/Drama", "genres/Adventure"];
 
+ var updateMovieWithPosterPath = function(movie){
+   var url = 'http://api.themoviedb.org/3/find/' + movie.imdbID + '?external_source=imdb_id&api_key=e14d30d8866462614fa0b5a19b45e26f'
+   $http.get(url).then(function(response){
+     movie.posterPath = 'http://image.tmdb.org/t/p/w500' + response.data.movie_results[0].poster_path;
+   });
+ };
+
   $scope.randomMovies = function (array) {
      for (var i = 0; i < array.length; i++) {
        var queryRef = ref2.orderByChild(array[i]).equalTo(true).limitToFirst(20);
@@ -23,7 +30,9 @@ angular.module('starter.controllers', [])
          var rand = Math.floor(Math.random() * snapshot.numChildren());
          snapshot.forEach(function (selected_snapshot) {
            if (i == rand) {
-             tenMovies.push(selected_snapshot.val())
+             var movie = selected_snapshot.val();
+             updateMovieWithPosterPath(movie);
+             tenMovies.push(movie)
            }
            i++;
          });

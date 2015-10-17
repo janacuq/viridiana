@@ -5,19 +5,19 @@
      
     <div class="row row-center">
       <div class="picture col">
-        
-        <div class="main">
-        <div class="wrapper">Hola</div>
+        <h4>{{currentMovie.title}}</h4>
+        <div class="main"><ion-spinner ng-if="isLoading"></ion-spinner> 
+        <div class="wrapper1"></div><div class="wrapper2"></div><div class="wrapper3"></div>
         <img class="img-likes" ng-src="{{currentMovie.posterPath}}"> 
-          
+         
           </div>
        
-         <h5>{{currentMovie.title}}</h5>
+         
       </div>
     </div>
     <div class="row row-bottom">
       <div class="button-bar">
-        <a class="button button-royal" ng-click="next_movie()">Meeh</a>
+        <a class="button button-positive" ng-click="next_movie()">Meeh</a>
         <a class="button button-stable" ng-click="save_movie($currentMovie)">Love it!</a>
         
 

@@ -4,14 +4,14 @@
 
 //For example, you might change some of the default colors:
 
-$light:                           #fff !default;
-$stable:                          #f8ade7 !default;
-$positive:                        #387ef5 !default;
-$calm:                            #11c1f3 !default;
-$balanced:                        #f1a5a5!default;
-$energized:                       #b5dcff !default;
-$assertive:                       #ef473a !default;
-$royal:                           #886aea !default;
+$light:                           #fff!default;
+$stable:                          #FF98AB !default;
+$positive:                        #FFD5B5 !default;
+$calm:                            #FF98AB !default;
+$balanced:                        #f8ade7!default;
+$energized:                       #B5DCFF !default;
+$assertive:                       #F8ADE7 !default;
+$royal:                           #B5DCFF !default;
 $dark:                            #f6f4f2 !default;
 
 
@@ -43,22 +43,22 @@ ion-content {
 
 .likes-content {
   text-align: center;
-         h5{
-    color: $stable;
+         h4{
+    color: darkgrey;
     font-family: 'HelveticaNeue';
          }
 }
 
 
-.wrapper {
+.wrapper1 {
   width: 100%;
   height: 100%;
   position: absolute;
-  background-color: $stable;
-  opacity:0.5;
+  background-color: $royal;
+  opacity:0.2;
   border-radius: 3px;
     -webkit-clip-path: polygon(
-    0 90%, 100% 70%, 100% 100%, 0% 100%);
+    0 90%, 100% 60%, 100% 100%, 0% 100%);
   -moz-clip-path: polygon(
       0 90%, 100% 70%, 100% 100%, 0% 100%);
   -ms-clip-path: polygon(
@@ -68,10 +68,47 @@ ion-content {
 
 }
 
+.wrapper2{
+    width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: $stable;
+  opacity:0.2;
+  border-radius: 3px;
+    -webkit-clip-path: polygon(
+    0 0%, 100% 0%, 100% 20%, 0% 70%);
+  -moz-clip-path: polygon(
+    0 0%, 100% 0%, 30% 100%, 0% 10%);
+  -ms-clip-path: polygon(
+        0 0%, 100% 0%, 30% 100%, 0% 10%);
+  clip-path: polygon(
+      0 0%, 100% 0%, 30% 100%, 0% 10%);
+}
+
+.wrapper3{
+    width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: $dark;
+  opacity:0.2;
+  border-radius: 3px;
+    -webkit-clip-path: polygon(
+    0% 70%, 100% 20%, 100% 60%, 0% 90%);
+  -moz-clip-path: polygon(
+    0 0%, 100% 0%, 30% 100%, 0% 10%);
+  -ms-clip-path: polygon(
+        0 0%, 100% 0%, 30% 100%, 0% 10%);
+  clip-path: polygon(
+      0 0%, 100% 0%, 30% 100%, 0% 10%);
+}
+
+
 .img-likes {
  
   max-width: 300px;
   max-height: 449px;
+  min-width: 300px;
+  min-height: 449px;
   -webkit-box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.2);
   -moz-box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.2);
   box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.2);
@@ -92,21 +129,25 @@ ion-content {
   border-radius: 3px;
   opacity: 0.9;
   position: relative;
+  vertical-align: middle;
 }
 
-.main .after {
+.item item-image {
+  width: 300px;
+  height: 450px;
+
+}
+
+
+ion-spinner {
   position: absolute;
-  top:0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: none;
-  color: black;
+  margin: auto;
+  top: 225px;
+  left: 150px;
+ 
   
 
-
 }
-
 .list-inset {
   .item{
     background-color: white;
@@ -138,6 +179,11 @@ margin-left: auto;
     .button-bar {
     font-size: 2rem;
     width: 90%;
+      .button-stable{
+      background-color: $stable;
+      color: white;
+      border-color: $stable;    
+      }
     }
 }
 

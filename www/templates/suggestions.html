@@ -6,13 +6,14 @@
  <div class="list card" ng-repeat="movie in movies">
  
 
-    <div class="item item-image" >
+    <div class="item item-image" > 
+      <ion-spinner ng-if="isLoading"></ion-spinner> <div class="wrapper1"></div><div class="wrapper2"></div><div class="wrapper3"></div>
     <img ng-src="{{movie.posterPath}}">
   </div>
    <a href="#/details/{{movie.imdbID}}" class="item item-icon-right dark" >
 
-     {{movie.title}}
-   <i class="ion-ios-arrow-right"></i></a>
+     {{movie.title}} ({{movie.year}})
+   </a>
 </div>
  
 </ion-content>

@@ -4,6 +4,8 @@ angular.module('starter.controllers', [])
 
 .controller('LikesCtrl', ["$scope", "$firebaseArray", "$location", "Selection", "$http", function ($scope, $firebaseArray, $location, Selection, $http) {
 
+  $scope.isLoading = true;
+
  var ref2 = new Firebase("https://viridiana.firebaseio.com/likes");
 
  $scope.data = $firebaseArray(ref2); //array of all likes movies
@@ -23,8 +25,10 @@ angular.module('starter.controllers', [])
  };
 
   $scope.randomMovies = function (array) {
+    
+   
      for (var i = 0; i < array.length; i++) {
-       var queryRef = ref2.orderByChild(array[i]).equalTo(true).limitToFirst(20);
+       var queryRef = ref2.orderByChild(array[i]).equalTo(true).limitToFirst(30);
        queryRef.on("value", function (snapshot) {
          var i = 0;
          var rand = Math.floor(Math.random() * snapshot.numChildren());
@@ -37,10 +41,12 @@ angular.module('starter.controllers', [])
            i++;
          });
          $scope.currentMovie = tenMovies[0];
+          $scope.isLoading = false;
          console.log(tenMovies);
        });
      }
      return tenMovies;
+     
    };
   $scope.randomMovies(movieGenres);
 
@@ -75,7 +81,6 @@ angular.module('starter.controllers', [])
 
   
   $scope.save_movie = function (currentMovie) {
-     //Selection.like($scope.currentMovie) - save currentMovie in the service directly
     liked_movies.push($scope.currentMovie);
     counter++;
 
@@ -124,7 +129,23 @@ angular.module('starter.controllers', [])
 })
 
 
-.controller('SuggestionsCtrl', function ($scope, Selection, $http) {
+.controller('SuggestionsCtrl', function ($scope, Selection, $http, $timeout, $ionicLoading){
+  
+   $scope.show = function(){
+  $ionicLoading.show({
+    template: '<p>Loading...</p><ion-spinner icon="circles" class="spinner-balanced"></ion-spinner>'
+  });
+  };
+  
+  $scope.hide = function(){
+ 
+    $ionicLoading.hide();
+ 
+  }
+  
+  
+  
+  
   $scope.movies = [];
 
   $scope.genres = Selection.getGenres();
@@ -141,7 +162,7 @@ angular.module('starter.controllers', [])
 
   var ref = new Firebase("https://viridiana.firebaseio.com/spanish");
   var randomMovies = function (array) {
-
+     $scope.show($ionicLoading);
     for (i = 0; i < array.length; i++) {
 
       var queryRef = ref.orderByChild(array[i]).equalTo(true).limitToFirst(20);
@@ -152,9 +173,7 @@ angular.module('starter.controllers', [])
         var rand = Math.floor(Math.random() * snapshot.numChildren());
         snapshot.forEach(function (selected_snapshot) {
             if (j == rand) {
-            //$scope.movies.push(selected_snapshot.val());
-              
-              var movie = selected_snapshot.val();
+             var movie = selected_snapshot.val();
              updateMovieWithPosterPath(movie);
              $scope.movies.push(movie)
              $scope.$apply();
@@ -162,9 +181,10 @@ angular.module('starter.controllers', [])
             j++;
           });
             Selection.addSpanish($scope.movies);
-
-        });
+            
+        }); 
      }
+     
     };
   randomMovies(topGenres);
   
@@ -172,7 +192,8 @@ angular.module('starter.controllers', [])
    var url = 'http://api.themoviedb.org/3/find/' + movie.imdbID + '?external_source=imdb_id&api_key=8476e72920cda228501fdc61e9457aa0'
    $http.get(url).then(function(response){
      movie.posterPath = 'http://image.tmdb.org/t/p/w300' + response.data.movie_results[0].poster_path;
+       $scope.hide($ionicLoading); 
    });
  };
-  
+
 });

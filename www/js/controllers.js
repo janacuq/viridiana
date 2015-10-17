@@ -16,7 +16,7 @@ angular.module('starter.controllers', [])
  var movieGenres = ["genres/War", "genres/Thriller", "genres/Romance", "genres/Animation", "genres/Crime", "genres/Fantasy", "genres/Drama", "genres/Adventure"];
 
  var updateMovieWithPosterPath = function(movie){
-   var url = 'http://api.themoviedb.org/3/find/' + movie.imdbID + '?external_source=imdb_id&api_key=e14d30d8866462614fa0b5a19b45e26f'
+   var url = 'http://api.themoviedb.org/3/find/' + movie.imdbID + '?external_source=imdb_id&api_key=8476e72920cda228501fdc61e9457aa0'
    $http.get(url).then(function(response){
      movie.posterPath = 'http://image.tmdb.org/t/p/w500' + response.data.movie_results[0].poster_path;
    });
@@ -124,7 +124,7 @@ angular.module('starter.controllers', [])
 })
 
 
-.controller('SuggestionsCtrl', function ($scope, Selection) {
+.controller('SuggestionsCtrl', function ($scope, Selection, $http) {
   $scope.movies = [];
 
   $scope.genres = Selection.getGenres();
@@ -152,7 +152,11 @@ angular.module('starter.controllers', [])
         var rand = Math.floor(Math.random() * snapshot.numChildren());
         snapshot.forEach(function (selected_snapshot) {
             if (j == rand) {
-            $scope.movies.push(selected_snapshot.val());
+            //$scope.movies.push(selected_snapshot.val());
+              
+              var movie = selected_snapshot.val();
+             updateMovieWithPosterPath(movie);
+             $scope.movies.push(movie)
              $scope.$apply();
             }
             j++;
@@ -163,5 +167,12 @@ angular.module('starter.controllers', [])
      }
     };
   randomMovies(topGenres);
+  
+   var updateMovieWithPosterPath = function(movie){
+   var url = 'http://api.themoviedb.org/3/find/' + movie.imdbID + '?external_source=imdb_id&api_key=8476e72920cda228501fdc61e9457aa0'
+   $http.get(url).then(function(response){
+     movie.posterPath = 'http://image.tmdb.org/t/p/w300' + response.data.movie_results[0].poster_path;
+   });
+ };
   
 });

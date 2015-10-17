@@ -2,16 +2,23 @@
 
   <ion-content>
     <div class="likes-content">
-      <h1>{{currentMovie.title}}</h1>
+     
     <div class="row row-center">
       <div class="picture col">
-        <img class="main" ng-src="{{currentMovie.posterPath}}"> 
+        
+        <div class="main">
+        <div class="wrapper">Hola</div>
+        <img class="img-likes" ng-src="{{currentMovie.posterPath}}"> 
+          
+          </div>
+       
+         <h5>{{currentMovie.title}}</h5>
       </div>
     </div>
     <div class="row row-bottom">
       <div class="button-bar">
-        <a class="button ion-ios-close-empty button-energized" ng-click="next_movie()"></a>
-        <a class="button button-balanced" ng-click="save_movie($currentMovie)">LOVE IT!</a>
+        <a class="button button-royal" ng-click="next_movie()">Meeh</a>
+        <a class="button button-stable" ng-click="save_movie($currentMovie)">Love it!</a>
         
 
       </div>

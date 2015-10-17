@@ -30,7 +30,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 
 html, ion-nav-bar,ion-nav-back-button,.button-clear,.ion-ios-arrow-left {
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
-  color: #f8ade7 !important;
+  color: $stable !important;
   
 
 }
@@ -43,12 +43,33 @@ ion-content {
 
 .likes-content {
   text-align: center;
+         h5{
+    color: $stable;
+    font-family: 'HelveticaNeue';
+         }
+}
+
+
+.wrapper {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: $stable;
+  opacity:0.5;
+  border-radius: 3px;
+    -webkit-clip-path: polygon(
+    0 90%, 100% 70%, 100% 100%, 0% 100%);
+  -moz-clip-path: polygon(
+      0 90%, 100% 70%, 100% 100%, 0% 100%);
+  -ms-clip-path: polygon(
+        0 90%, 100% 70%, 100% 100%, 0% 100%);
+  clip-path: polygon(
+       0 90%, 100% 70%, 100% 100%, 0% 100%);
 
 }
 
- .main {
-  width: 90%;
-  height: 90%;
+.img-likes {
+ 
   max-width: 300px;
   max-height: 449px;
   -webkit-box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.2);
@@ -56,11 +77,37 @@ ion-content {
   box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.2);
   border-radius: 3px;
   opacity: 0.9;
-
+  position: relative;
+  z-index: -1;
   }
 
-.list-inset {
+.main{
+   width: 300px;
+  height: 449px;
+  margin-left: auto;
+  margin-right: auto;
+ -webkit-box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+  opacity: 0.9;
+  position: relative;
+}
+
+.main .after {
+  position: absolute;
+  top:0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  color: black;
   
+
+
+}
+
+.list-inset {
   .item{
     background-color: white;
     border-color: $stable;
@@ -83,9 +130,15 @@ margin-left: auto;
   
 }
 
-.button-bar {
-  font-size: 2rem;
-  width: 90%;
+.row-bottom {
+  width:300px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0;
+    .button-bar {
+    font-size: 2rem;
+    width: 90%;
+    }
 }
 
 .bar.bar-dark {

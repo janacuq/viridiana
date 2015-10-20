@@ -25,7 +25,15 @@ angular.module('starter.controllers', [])
  };
 
   $scope.randomMovies = function (array) {
-    
+    // var movies = {}; // keys == genres, value == [list of movies]
+    // randomMovies = [];
+    // loop through movies and pick random movie from list of movies
+    // for (var genre in movies){
+    //  var candidate = movies[Math.random() * movies.length];
+    // if candidate not in randomMovies
+    // randomMovies.push(candidate);
+    // else try again
+    //}
    
      for (var i = 0; i < array.length; i++) {
        var queryRef = ref2.orderByChild(array[i]).equalTo(true).limitToFirst(30);
@@ -36,7 +44,14 @@ angular.module('starter.controllers', [])
            if (i == rand) {
              var movie = selected_snapshot.val();
              updateMovieWithPosterPath(movie);
-             tenMovies.push(movie)
+             var existingMovie = tenMovies.find(function(m){
+               return m.imdbID === movie.imdbID;
+             });
+             if (!existingMovie){
+               tenMovies.push(movie);
+             } else {
+               rand++;
+             }
            }
            i++;
          });

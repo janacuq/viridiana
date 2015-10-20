@@ -44,7 +44,7 @@ ion-content {
 .likes-content {
   text-align: center;
          h4{
-    color: darkgrey;
+    color: #746D75;
     font-family: 'HelveticaNeue';
          }
 }
@@ -130,30 +130,37 @@ ion-content {
   opacity: 0.9;
   position: relative;
   vertical-align: middle;
-}
-
-.item item-image {
-  width: 300px;
-  height: 450px;
-
-}
-
-
-ion-spinner {
+    ion-spinner {
   position: absolute;
   margin: auto;
   top: 225px;
   left: 150px;
+    }
+}
+
+.item-image {
+  width: 300px;
+  height: 450px;
+    img {
+   width: 300px;
+  height: 450px;
+  }  
+}
+
+
+
+
  
   
 
-}
+
 .list-inset {
   .item{
-    background-color: white;
-    border-color: $stable;
+    background-color: $stable;
+    //opacity: 0.8;
+    border-color: $dark;
     h3,p {
-    color: grey;
+    color: white;
     }
   }
 }
@@ -161,13 +168,15 @@ ion-spinner {
 .padding .card {
 margin-left: auto;
   margin-right: auto;
-  width: 70%;
+  width: 300px;
+  
 
 }
-.card .item{
- 
-  color: grey;
+.card h3{
+  font-family: 'HelveticaNeue';
+  color: $stable;
   text-align: left;
+  
   
 }
 

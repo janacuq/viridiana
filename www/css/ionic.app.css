@@ -7695,7 +7695,7 @@ ion-content {
 .likes-content {
   text-align: center; }
   .likes-content h4 {
-    color: darkgrey;
+    color: #746D75;
     font-family: 'HelveticaNeue'; }
 
 .wrapper1 {
@@ -7759,30 +7759,33 @@ ion-content {
   opacity: 0.9;
   position: relative;
   vertical-align: middle; }
+  .main ion-spinner {
+    position: absolute;
+    margin: auto;
+    top: 225px;
+    left: 150px; }
 
-.item item-image {
+.item-image {
   width: 300px;
   height: 450px; }
-
-ion-spinner {
-  position: absolute;
-  margin: auto;
-  top: 225px;
-  left: 150px; }
+  .item-image img {
+    width: 300px;
+    height: 450px; }
 
 .list-inset .item {
-  background-color: white;
-  border-color: #FF98AB; }
+  background-color: #FF98AB;
+  border-color: #f6f4f2; }
   .list-inset .item h3, .list-inset .item p {
-    color: grey; }
+    color: white; }
 
 .padding .card {
   margin-left: auto;
   margin-right: auto;
-  width: 70%; }
+  width: 300px; }
 
-.card .item {
-  color: grey;
+.card h3 {
+  font-family: 'HelveticaNeue';
+  color: #FF98AB;
   text-align: left; }
 
 .row-bottom {

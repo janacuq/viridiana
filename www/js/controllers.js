@@ -138,13 +138,8 @@ angular.module('starter.controllers', [])
   };
   
   $scope.hide = function(){
- 
     $ionicLoading.hide();
- 
-  }
-  
-  
-  
+  };
   
   $scope.movies = [];
 

@@ -12,6 +12,8 @@ angular.module('starter.controllers', [])
  $scope.final_movies = null;
  $scope.currentMovie = null;
  window.skope = $scope;
+ $scope.clicked = true;
+
  var counter = 0;
  var tenMovies = [];
  var liked_movies = [];
@@ -105,15 +107,18 @@ angular.module('starter.controllers', [])
     } else {
         $scope.next_movie();
     }
+        $scope.clicked = true;
   };
 
 
   $scope.next_movie = function () {
 
+    $scope.clicked = false;
+    
     var currentIndex = tenMovies.indexOf($scope.currentMovie);
 
     $scope.currentMovie = tenMovies[currentIndex + 1];
-
+ 
   };
 
 }])

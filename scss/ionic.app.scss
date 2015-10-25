@@ -5,14 +5,14 @@
 //For example, you might change some of the default colors:
 
 $light:                           #fff!default;
-$stable:                          #FF98AB !default;
+$stable:                          #D46956 !default;
 $positive:                        #FFD5B5 !default;
 $calm:                            #FF98AB !default;
 $balanced:                        #f8ade7!default;
 $energized:                       #B5DCFF !default;
 $assertive:                       #F8ADE7 !default;
 $royal:                           #B5DCFF !default;
-$dark:                            #f6f4f2 !default;
+$dark:                            white !default;
 
 
 
@@ -31,8 +31,13 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 html, ion-nav-bar,ion-nav-back-button,.button-clear,.ion-ios-arrow-left {
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
   color: $stable !important;
-  
+}
 
+.bar.bar-dark {
+  border-color: $stable;
+  color: $stable;
+  .bar.bar-dark .title {
+      color: $stable; }
 }
 
 ion-content {
@@ -42,101 +47,48 @@ ion-content {
 }
 
 .likes-content {
-  text-align: center;
-         h4{
-    color: #746D75;
-    font-family: 'HelveticaNeue';
-         }
-}
-
-
-.wrapper1 {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  background-color: $royal;
-  opacity:0.2;
-  border-radius: 3px;
-    -webkit-clip-path: polygon(
-    0 90%, 100% 60%, 100% 100%, 0% 100%);
-  -moz-clip-path: polygon(
-      0 90%, 100% 70%, 100% 100%, 0% 100%);
-  -ms-clip-path: polygon(
-        0 90%, 100% 70%, 100% 100%, 0% 100%);
-  clip-path: polygon(
-       0 90%, 100% 70%, 100% 100%, 0% 100%);
-
-}
-
-.wrapper2{
-    width: 100%;
-  height: 100%;
-  position: absolute;
-  background-color: $stable;
-  opacity:0.2;
-  border-radius: 3px;
-    -webkit-clip-path: polygon(
-    0 0%, 100% 0%, 100% 20%, 0% 70%);
-  -moz-clip-path: polygon(
-    0 0%, 100% 0%, 30% 100%, 0% 10%);
-  -ms-clip-path: polygon(
-        0 0%, 100% 0%, 30% 100%, 0% 10%);
-  clip-path: polygon(
-      0 0%, 100% 0%, 30% 100%, 0% 10%);
-}
-
-.wrapper3{
-    width: 100%;
-  height: 100%;
-  position: absolute;
-  background-color: $dark;
-  opacity:0.2;
-  border-radius: 3px;
-    -webkit-clip-path: polygon(
-    0% 70%, 100% 20%, 100% 60%, 0% 90%);
-  -moz-clip-path: polygon(
-    0 0%, 100% 0%, 30% 100%, 0% 10%);
-  -ms-clip-path: polygon(
-        0 0%, 100% 0%, 30% 100%, 0% 10%);
-  clip-path: polygon(
-      0 0%, 100% 0%, 30% 100%, 0% 10%);
-}
-
-
-.img-likes {
- 
-  max-width: 300px;
-  max-height: 449px;
-  min-width: 300px;
-  min-height: 449px;
-  -webkit-box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.2);
-  -moz-box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.2);
-  box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.2);
-  border-radius: 3px;
-  opacity: 0.9;
-  position: relative;
-  z-index: -1;
-  }
-
-.main{
-   width: 300px;
-  height: 449px;
-  margin-left: auto;
-  margin-right: auto;
- -webkit-box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.2);
-  -moz-box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.2);
-  box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.2);
-  border-radius: 3px;
-  opacity: 0.9;
-  position: relative;
-  vertical-align: middle;
-    ion-spinner {
+  ion-spinner {
   position: absolute;
   margin: auto;
   top: 225px;
   left: 150px;
+      }
+  .row-center {
+  justify-content: center;
+    text-align: center;
+    
+    #likes{
+    padding: 0px 10px 10px 10px;
+      h5 {
+      color: $stable;
+      }
     }
-}
+    .img-likes {
+    max-width: 250px;
+    max-height: 374px;
+    min-width: 250x;
+    min-height: 374px;
+    border-radius: 3px;
+    position: relative;
+    margin-top: 20px;
+    }
+  }
+  .row-bottom {
+  width:300px;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: space-between;
+  padding: 20px;
+    .cross-icon::after {
+    background: url('/img/cross-icon-hover.png') center no-repeat;
+    }
+  }
+ }
+
+
+
+
+
 
 .item-image {
   width: 300px;
@@ -180,28 +132,10 @@ margin-left: auto;
   
 }
 
-.row-bottom {
-  width:300px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 0;
-    .button-bar {
-    font-size: 2rem;
-    width: 90%;
-      .button-stable{
-      background-color: $stable;
-      color: white;
-      border-color: $stable;    
-      }
-    }
-}
 
-.bar.bar-dark {
-  border-color: $stable;
-  color: $stable;
-  .bar.bar-dark .title {
-      color: $stable; }
-}
+
+
+
 
 
 

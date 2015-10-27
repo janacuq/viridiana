@@ -7685,7 +7685,7 @@ a.button {
   transition-duration: 0s; }
 
 html, ion-nav-bar, ion-nav-back-button, .button-clear, .ion-ios-arrow-left {
-  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   color: #D46956 !important; }
 
 .bar.bar-dark {
@@ -7707,45 +7707,53 @@ ion-content {
   justify-content: center;
   text-align: center; }
   .likes-content .row-center #likes {
-    padding: 0px 10px 10px 10px; }
-    .likes-content .row-center #likes h5 {
-      color: #D46956; }
+    padding: 10px 10px 10px 10px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0px;
+    margin-bottom: 1%; }
   .likes-content .row-center .img-likes {
-    max-width: 250px;
-    max-height: 374px;
-    min-width: 250x;
-    min-height: 374px;
+    max-width: 500px;
+    max-height: 750px;
+    width: 100%;
     border-radius: 3px;
-    position: relative;
-    margin-top: 20px; }
+    position: relative; }
 .likes-content .row-bottom {
-  width: 300px;
+  width: 80%;
+  max-width: 500px;
   margin-left: auto;
   margin-right: auto;
   justify-content: space-between;
-  padding: 20px; }
-  .likes-content .row-bottom .cross-icon::after {
-    background: url('/img/cross-icon-hover.png') center no-repeat; }
+  padding-top: 5%; }
+  .likes-content .row-bottom .cross-icon, .likes-content .row-bottom #heart-icon {
+    width: 15%; }
 
 .item-image {
-  width: 300px;
-  height: 450px; }
+  width: 100%;
+  max-width: 500px;
+  margin-bottom: -5px; }
   .item-image img {
-    width: 300px;
-    height: 450px; }
+    width: 100%;
+    max-width: 500px; }
 
 .list-inset .item {
-  background-color: #D46956;
-  border-color: white; }
+  background-color: white;
+  border-top-style: solid;
+  border-top-color: #D46956;
+  border-left-color: white;
+  border-right-color: white; }
   .list-inset .item h3, .list-inset .item p {
-    color: white; }
+    color: #D46956;
+    font-family: "Roboto"; }
 
 .padding .card {
   margin-left: auto;
   margin-right: auto;
-  width: 300px; }
+  width: 80%;
+  max-width: 400px; }
 
 .card h3 {
-  font-family: 'HelveticaNeue';
+  font-family: 'Roboto';
   color: #D46956;
   text-align: left; }

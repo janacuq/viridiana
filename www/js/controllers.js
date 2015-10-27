@@ -70,29 +70,21 @@ angular.module('starter.controllers', [])
   $scope.pass_data = function () {
 
     $location.url('suggestions');
-
     var genresByPoints = {};
     var myGenres = [];
 
     for (var i = 0; i < $scope.final_movies.length; i++) {
-
       myGenres.push($scope.final_movies[i].genres);
-
     }
-
     for (var i = 0; i < myGenres.length; i++) {
-
       for (var prop in myGenres[i]) {
-
         if (genresByPoints[prop] >= 1) {
-
           genresByPoints[prop] = genresByPoints[prop] + 1;
         } else {
           genresByPoints[prop] = 1
         }
       }
     }
-  
     Selection.addGenres(genresByPoints);
   };
 
@@ -110,22 +102,16 @@ angular.module('starter.controllers', [])
         $scope.clicked = true;
   };
 
-
   $scope.next_movie = function () {
-
     $scope.clicked = false;
-    
     var currentIndex = tenMovies.indexOf($scope.currentMovie);
-
     $scope.currentMovie = tenMovies[currentIndex + 1];
- 
   };
 
 }])
 
 .controller('DetailsCtrl', function ($scope, $stateParams, Selection) {
   var imdbID = $stateParams.imdbID;
-
   $scope.spanish = Selection.get($stateParams.imdbID);
   
 })

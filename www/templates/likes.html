@@ -1,16 +1,17 @@
 <ion-view view-title="VIRIDIANA" ng-controller="PopupCtrl" ng-init="showAlert()">
   <ion-content>
     <div class="likes-content">
-      <div class="row row-center" ng-init="startAni1 = false;">
-        <div class="card animated bounceInLeft" ng-class="{'animated bounceInLeft': startAni1}" id="likes" on-swipe-left="next_movie()" on-swipe-right="save_movie($currentMovie)">
-          <img class="img-likes animated bounceInLeft"  src="../img/first_movie_white.png" ng-src="{{currentMovie.posterPath}}"/>
+      <div class="row row-center">
+        <div class="card animated bounceInLeft" id="likes" on-swipe-left="next_movie()" on-swipe-right="save_movie($currentMovie)">
+          <img class="img-likes"  src="../img/first_movie_white.png" ng-src="{{currentMovie.posterPath}}"/>
           <ion-spinner class="spinner-stable" icon="circles" ng-if="isLoading" ></ion-spinner>
         </div>
       </div>
-      <div class="row row-bottom">
-        <button class="cross-icon" ng-click="next_movie() && startAni1=!startAni1" ng-mousedown="mouseDown()"><img ng-src="img/cross-icon.png"/></button>
-        <button class="heart-icon" ng-click="save_movie($currentMovie)"><img src="img/heart-icon.png" /></button>
-      </div>
    </div>
+     <div class="row row-bottom">
+        <button class="cross-icon" ng-click="next_movie()" ng-mousedown="mouseDown()"><img ng-src="img/cross-icon.png"/></button>
+        <button class="heart-icon" ng-click="save_movie($currentMovie)"><img src="img/heart-icon.png" /></button>
+          </div>
   </ion-content>
+ 
 </ion-view>

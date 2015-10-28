@@ -24,13 +24,9 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
 
-
-
-.loading-backdrop{
-  background-color: blue !important;
-  color: $stable !important;
-  border-radius: 3px;
-    }
+body {  
+  cursor: url('http://ionicframework.com/img/finger.png'), auto; 
+}
   
 
 
@@ -62,8 +58,6 @@ ion-content {
   .row-center {
   justify-content: center;
   text-align: center;
-  margin-top: 10%;
-    
     #likes{
     padding: 10px 10px 10px 10px;
     width: 80%;
@@ -72,15 +66,7 @@ ion-content {
     margin-right: auto;
     margin-top: 0px;
     margin-bottom: 1%;
-    max-width: 500px;
-      &.ng-leave{
-      -webkit-animation:1.5s anim_leave;
-      -moz-animation:1.5s anim_leave;
-      -o-animation:1.5s anim_leave;
-      animation:1.5s anim_leave;
-      position:relative;
-    }
-      }
+    max-width: 500px; 
     }
     .img-likes {
     max-width: 500px;
@@ -90,25 +76,25 @@ ion-content {
     border-radius: 3px;
     position: relative;
     }
-     
   }
-  .row-bottom {
-  width:80%;
-  max-width: 500px;
-  margin-left: auto;
-  margin-right: auto;
-  justify-content: space-between;
-  padding-top: 5%;
+}
+
+.row-bottom {
+ width:80%;
+ max-width: 500px;
+ margin-left: auto;
+ margin-right: auto;
+ justify-content: space-between;
     button {
   background: none;
   border: none;
   width: 30%;
-     img{
-     width: 80%;
-      }
+    img{
+    width: 80%;
+   }
   }
 }
-}
+
 
 
 

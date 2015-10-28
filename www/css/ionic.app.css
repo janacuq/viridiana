@@ -7726,8 +7726,12 @@ ion-content {
   margin-right: auto;
   justify-content: space-between;
   padding-top: 5%; }
-  .likes-content .row-bottom .cross-icon, .likes-content .row-bottom #heart-icon {
-    width: 15%; }
+  .likes-content .row-bottom button {
+    background: none;
+    border: none;
+    width: 20%; }
+    .likes-content .row-bottom button img {
+      width: 80%; }
 
 .item-image {
   width: 100%;

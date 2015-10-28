@@ -80,11 +80,16 @@ ion-content {
   margin-right: auto;
   justify-content: space-between;
   padding-top: 5%;
-    .cross-icon,#heart-icon {
-    width: 15%;
-    }
+    button {
+  background: none;
+  border: none;
+  width: 20%;
+     img{
+     width: 80%;
+      }
   }
- }
+}
+}
 
 
 

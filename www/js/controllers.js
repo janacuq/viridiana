@@ -2,7 +2,7 @@ angular.module('starter.controllers', [])
 
 .controller('LandingCtrl', function ($scope) {})
 
-.controller('LikesCtrl', ["$scope", "$firebaseArray", "$location", "Selection", "$http", function ($scope, $firebaseArray, $location, Selection, $http) {
+.controller('LikesCtrl', ["$scope", "$firebaseArray", "$location", "Selection", "$http", "$ionicModal", function ($scope, $firebaseArray, $location, Selection, $http, $ionicModal) {
 
   $scope.isLoading = true;
 
@@ -24,7 +24,7 @@ angular.module('starter.controllers', [])
     $scope.icon = '../img/cross-icon-hover.png';
   
   };
-  
+ 
   
  var updateMovieWithPosterPath = function(movie){
    var url = 'http://api.themoviedb.org/3/find/' + movie.imdbID + '?external_source=imdb_id&api_key=8476e72920cda228501fdc61e9457aa0'
@@ -53,14 +53,14 @@ angular.module('starter.controllers', [])
            if (i == rand) {
              var movie = selected_snapshot.val();
              updateMovieWithPosterPath(movie);
-             var existingMovie = tenMovies.find(function(m){
-               return m.imdbID === movie.imdbID;
-             });
-             if (!existingMovie){
+            // var existingMovie = tenMovies.find(function(m){
+             //  return m.imdbID === movie.imdbID;
+            // });
+            // if (!existingMovie){
                tenMovies.push(movie);
-             } else {
-               rand++;
-             }
+           //  } else {
+            //   rand++;
+            // }
            }
            i++;
          });
@@ -146,11 +146,12 @@ angular.module('starter.controllers', [])
   
    $scope.show = function(){
   $ionicLoading.show({
-    template: '<p>Loading...</p><ion-spinner icon="circles" class="spinner-balanced"></ion-spinner>'
+    template: '<p>Loading Movies...</p><ion-spinner icon="circles" class="spinner-stable"></ion-spinner>'
   });
   };
-  
+ 
   $scope.hide = function(){
+  
     $ionicLoading.hide();
   };
   

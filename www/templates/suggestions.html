@@ -4,16 +4,12 @@
  <ion-content class="padding">
 
  <div class="list card" ng-repeat="movie in movies">
- 
-
     <div class="item item-image" > 
-      <div class="wrapper1"></div><div class="wrapper2"></div><div class="wrapper3"></div>
-    <img ng-src="{{movie.posterPath}}">
-  </div>
-   <a href="#/details/{{movie.imdbID}}" class="item item-icon-right dark" >
-
-     <h3>{{movie.title}} ({{movie.year}})</h3>
-   </a>
+      <img ng-src="{{movie.posterPath}}">
+    </div>
+    <a href="#/details/{{movie.imdbID}}" class="item item-icon-right dark" >
+      <h3>{{movie.title}} ({{movie.year}})</h3>
+    </a>
 </div>
  
 </ion-content>

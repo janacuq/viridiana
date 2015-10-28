@@ -19,7 +19,7 @@ angular.module('starter.controllers', [])
  var liked_movies = [];
  var movieGenres = ["genres/War", "genres/Thriller", "genres/Romance", "genres/Animation", "genres/Crime", "genres/Fantasy", "genres/Drama", "genres/Adventure"];
 
-  $scope.icon = '../cross-icon.png';
+  $scope.icon = '../img/cross-icon.png';
   $scope.mouseDown = function() {
     $scope.icon = '../img/cross-icon-hover.png';
   

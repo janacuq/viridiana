@@ -2,26 +2,19 @@
 
   <ion-content>
     <div class="likes-content">
-
       <div class="row row-center">
-        <td-cards>
-          <td-card>
-            <div class="card" id="likes">
-              <ion-spinner ng-if="isLoading"></ion-spinner>
-              <img class="img-likes" ng-src="{{currentMovie.posterPath}}">
+ <div class="card" id="likes">
+          <ion-spinner ng-if="isLoading"></ion-spinner>
+          <img class="img-likes" ng-src="{{currentMovie.posterPath}}">
 
-            </div>
-          </td-card>
-
-
-        </td-cards>
+        </div>
       </div>
       <div class="row row-bottom">
 
         <button class="cross-icon" ng-click="next_movie()" ng-mousedown="mouseDown()"><img ng-src={{icon}}/></button>
 
         <button class="cross-icon" ng-click="save_movie($currentMovie)"><img src="img/heart-icon.png" /></button>
-        
+
       </div>
     </div>
   </ion-content>

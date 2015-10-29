@@ -9,7 +9,7 @@
       </div>
    </div>
      <div class="row row-bottom">
-        <button class="cross-icon" ng-click="next_movie()" ng-mousedown="mouseDown()"><img ng-src="img/cross-icon.png"/></button>
+       <button class="cross-icon" ng-click="next_movie()" ng-mousedown="mouseDown()" ng-mouseup="mouseUp()"><img ng-src="{{icon}}"/></button>
         <button class="heart-icon" ng-click="save_movie($currentMovie)"><img src="img/heart-icon.png" /></button>
           </div>
   </ion-content>

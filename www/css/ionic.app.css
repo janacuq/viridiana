@@ -7693,37 +7693,19 @@ html, ion-nav-bar, ion-nav-back-button, .button-clear, .ion-ios-arrow-left {
 
 .bar.bar-dark {
   border-color: #D46956;
-  color: #D46956; }
+  color: #D46956;
+  letter-spacing: 3px; }
   .bar.bar-dark .bar.bar-dark .title {
     color: #D46956; }
 
 ion-content {
-  background-color: white;
+  background-color: #FFD384;
   color: #D46956; }
 
-.likes-content ion-spinner {
+ion-spinner {
   position: absolute;
   top: 25%;
   left: 45%; }
-.likes-content .row-center {
-  justify-content: center;
-  text-align: center; }
-  .likes-content .row-center #likes {
-    padding: 10px 10px 10px 10px;
-    width: 80%;
-    height: auto;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 0px;
-    margin-bottom: 1%;
-    max-width: 500px; }
-  .likes-content .row-center .img-likes {
-    max-width: 500px;
-    max-height: 750px;
-    width: 100%;
-    height: auto;
-    border-radius: 3px;
-    position: relative; }
 
 .row-bottom {
   width: 80%;
@@ -7748,10 +7730,7 @@ ion-content {
 
 .list-inset .item {
   background-color: white;
-  border-top-style: solid;
-  border-top-color: #D46956;
-  border-left-color: white;
-  border-right-color: white; }
+  border-color: white; }
   .list-inset .item h3, .list-inset .item p {
     color: #D46956;
     font-family: "Roboto"; }

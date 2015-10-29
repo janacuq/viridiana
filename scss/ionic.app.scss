@@ -39,45 +39,25 @@ html, ion-nav-bar,ion-nav-back-button,.button-clear,.ion-ios-arrow-left {
 .bar.bar-dark {
   border-color: $stable;
   color: $stable;
+  letter-spacing: 3px;
   .bar.bar-dark .title {
       color: $stable; }
 }
 
 ion-content {
-  background-color: $dark;
+  background-color: #FFD384 ;
   color: $stable;
   
 }
 
-.likes-content {
+
   ion-spinner {
   position: absolute;
   top: 25%; 
   left: 45%; 
   }
-  .row-center {
-  justify-content: center;
-  text-align: center;
-    #likes{
-    padding: 10px 10px 10px 10px;
-    width: 80%;
-    height: auto;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 0px;
-    margin-bottom: 1%;
-    max-width: 500px; 
-    }
-    .img-likes {
-    max-width: 500px;
-    max-height: 750px;
-    width: 100%;
-    height: auto;
-    border-radius: 3px;
-    position: relative;
-    }
-  }
-}
+
+  
 
 .row-bottom {
  width:80%;
@@ -91,6 +71,7 @@ ion-content {
   width: 30%;
     img{
     width: 80%;
+    
    }
   }
 }
@@ -121,10 +102,7 @@ ion-content {
 .list-inset {
   .item{
     background-color: white;
-    border-top-style: solid;
-    border-top-color:  $stable;
-    border-left-color: white;
-    border-right-color: white;
+    border-color: white;
     h3,p {
     color: $stable;
     font-family: "Roboto";

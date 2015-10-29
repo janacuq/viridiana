@@ -13,7 +13,7 @@ angular.module('starter.controllers', [])
  $scope.currentMovie = null;
  window.skope = $scope;
  $scope.clicked = true;
-
+ $scope.done = false;
  var counter = 0;
  var tenMovies = [];
  var liked_movies = [];
@@ -56,26 +56,27 @@ angular.module('starter.controllers', [])
            if (i == rand) {
              var movie = selected_snapshot.val();
              updateMovieWithPosterPath(movie);
-            // var existingMovie = tenMovies.find(function(m){
-             //  return m.imdbID === movie.imdbID;
-            // });
-            // if (!existingMovie){
+             var existingMovie = tenMovies.find(function(m){
+               return m.imdbID === movie.imdbID;
+             });
+             if (!existingMovie){
                tenMovies.push(movie);
-           //  } else {
-            //   rand++;
-            // }
+             } else {
+               rand++;
+             }
            }
            i++;
          });
          $scope.currentMovie = tenMovies[0];
           $scope.isLoading = false;
          console.log(tenMovies);
+ 
        });
      }
      return tenMovies;
-     
+
    };
-  $scope.randomMovies(movieGenres);
+  
 
   $scope.pass_data = function () {
 
@@ -99,17 +100,15 @@ angular.module('starter.controllers', [])
   };
 
   
-  $scope.save_movie = function (currentMovie) {
-    liked_movies.push($scope.currentMovie);
+  $scope.save_movie = function (index) {
+    liked_movies.push(tenMovies[index]);
     counter++;
-
+    cardSwipeRight(index);
     if (counter === 3) {
         $scope.final_movies = liked_movies;
         $scope.pass_data();
-    } else {
-        $scope.next_movie();
     }
-        $scope.clicked = true;
+     
   };
 
   $scope.next_movie = function () {
@@ -117,6 +116,42 @@ angular.module('starter.controllers', [])
     var currentIndex = tenMovies.indexOf($scope.currentMovie);
     $scope.currentMovie = tenMovies[currentIndex + 1];
   };
+  
+  $scope.randomMovies(movieGenres);
+  
+  
+  $scope.start = function(){
+   
+  $scope.cards = Array.prototype.slice.call(tenMovies, 0);
+    $scope.done = true;
+  };
+  
+   $scope.cardDestroyed = function(index) {
+    $scope.cards.splice(index, 1);
+    
+  };
+  
+  $scope.addCard = function() {
+    var newCard = tenMovies[Math.floor(Math.random() * tenMovies.length)];
+    newCard.id = Math.random();
+    $scope.cards.push(angular.extend({}, newCard));
+  }
+  
+      $scope.cardSwipedLeft = function(index) {
+        console.log('Left swipe');
+      
+    }
+ 
+    $scope.cardSwipedRight = function(index) {
+        liked_movies.push(tenMovies[index]);
+        counter++;
+    
+    if (counter === 3) {
+        $scope.final_movies = liked_movies;
+        $scope.pass_data();
+    }
+     
+    };
 
 }])
 
@@ -140,6 +175,7 @@ angular.module('starter.controllers', [])
     okType: 'button button-light'
     });
       alertPopup.then(function (res) {
+        $scope.start();
     });
   };
 })

@@ -3,7 +3,7 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-var app = angular.module('starter', ['ionic', 'firebase',  'starter.controllers', 'starter.services'])
+var app = angular.module('starter', ['ionic', 'ionic.contrib.ui.tinderCards', 'firebase',  'starter.controllers', 'starter.services'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -15,17 +15,7 @@ var app = angular.module('starter', ['ionic', 'firebase',  'starter.controllers'
     if(window.StatusBar) {
       StatusBar.styleDefault();
     }
-     /*
-    var ref = new Firebase("https://viridiana.firebaseio.com/movies");
-  
  
-   ref.orderByChild("poster").equalTo("N/A").on("child_added", function(snapshot) {
-  console.log(snapshot.key() + " is " +  snapshot.val().title + snapshot.val().poster);
-}); 
-   */
-   
-    
-    
   });
 })
 
@@ -64,6 +54,19 @@ var app = angular.module('starter', ['ionic', 'firebase',  'starter.controllers'
   $urlRouterProvider.otherwise('/likes');
   
 
+})
+
+.directive('noScroll', function($document) {
+
+  return {
+    restrict: 'A',
+    link: function($scope, $element, $attr) {
+
+      $document.on('touchmove', function(e) {
+        e.preventDefault();
+      });
+    }
+  }
 })
 
 .filter('string', function() {

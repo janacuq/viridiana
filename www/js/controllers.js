@@ -128,39 +128,36 @@ angular.module('starter.controllers', [])
     $scope.cards.splice(index, 1);
     
   };
-  
+  /*
   $scope.addCard = function() {
     var newCard = tenMovies[Math.floor(Math.random() * tenMovies.length)];
     newCard.id = Math.random();
-    $scope.cards.push(angular.extend({}, newCard));
-  }
-  
-      $scope.cardSwipedLeft = function(index) {
-    
-        /*
-        if ( index === 0  && counter > 1 ) {
-        $scope.final_movies = liked_movies;
-        $scope.pass_data();
+    $scope.cards.push(newCard);
+  };
+  */
+  $scope.cardSwipedLeft = function(index) {
+     
+      if ( index === 0  && counter > 1 ) {
+      $scope.final_movies = liked_movies;
+      $scope.pass_data();
     } else if( index === 0  && counter <= 1 ) {
       tenMovies = [];
       $scope.randomMovies(movieGenres);
       $scope.start();
     }
-      */
-    }
+  };
  
     $scope.cardSwipedRight = function(index) {
-        liked_movies.push(tenMovies[index]);
+      liked_movies.push(tenMovies[index]);
       console.log(liked_movies);
-        counter++;
+      counter++;
     
-    if ( index === 1  && counter > 1 ) {
+      if ( index === 1  && counter > 1 ) {
         $scope.final_movies = liked_movies;
         $scope.pass_data();
-    } else if ( index === 1  && counter <= 1 ){
+      } else if ( index === 1  && counter <= 1 ){
       $scope.start();
-    }
-     
+      } 
     };
 
 }])

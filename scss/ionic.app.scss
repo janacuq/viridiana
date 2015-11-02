@@ -103,7 +103,11 @@ td-card {
         width: 100%;
       }
     }
-    .no-text {
+  }
+}
+
+ion-footer-bar {
+   .no-text {
       color: $stable;
       font-size: 3rem;
       border: none;
@@ -120,5 +124,6 @@ td-card {
         color: black;
       }
     }
-  }
+
+
 }

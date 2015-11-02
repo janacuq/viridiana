@@ -7702,24 +7702,6 @@ ion-content {
   background-color: #FFD384;
   color: #D46956; }
 
-ion-spinner {
-  position: absolute;
-  top: 25%;
-  left: 45%; }
-
-.row-bottom {
-  width: 80%;
-  max-width: 500px;
-  margin-left: auto;
-  margin-right: auto;
-  justify-content: space-between; }
-  .row-bottom button {
-    background: none;
-    border: none;
-    width: 30%; }
-    .row-bottom button img {
-      width: 80%; }
-
 .item-image {
   width: 100%;
   max-width: 500px;
@@ -7766,17 +7748,18 @@ td-card {
     position: relative; }
     td-card .swipe-card .image img {
       width: 100%; }
-  td-card .swipe-card .no-text {
-    color: #D46956;
-    font-size: 3rem;
-    border: none;
-    background: none;
-    float: left; }
-  td-card .swipe-card .yes-text {
-    color: #D46956;
-    font-size: 3rem;
-    border: none;
-    background: none;
-    float: right; }
-    td-card .swipe-card .yes-text.activated {
-      color: black; }
+
+ion-footer-bar .no-text {
+  color: #D46956;
+  font-size: 3rem;
+  border: none;
+  background: none;
+  float: left; }
+ion-footer-bar .yes-text {
+  color: #D46956;
+  font-size: 3rem;
+  border: none;
+  background: none;
+  float: right; }
+  ion-footer-bar .yes-text.activated {
+    color: black; }

@@ -3,20 +3,14 @@
   <td-cards>
     <td-card ng-repeat="card in cards" on-destroy="cardDestroyed($index)"  on-swipe-left="cardSwipedLeft($index)" on-swipe-right="cardSwipedRight($index)" on-partial-swipe="cardPartialSwipe(amt)" class="card-{{$index}}">
       <div class="image"><img src="../img/first_movie_white.png" ng-src = "{{card.posterPath}}"/>
-        
       </div>
-   <button class="ion-ios-close-outline no-text" ng-click="cardSwipedLeft($index)"></button>
-        <button class="ion-ios-heart-outline  yes-text" ng-click="cardSwipedRight($index)"></button>
-          </div>
-  
-    
-    </td-card>
-     
+    </td-card>   
   </td-cards>
- 
-  
-  
    </ion-content>
+    <ion-footer-bar>
+  <button class="no-text" ng-click="cardSwipedLeft($index)"><i class="ion-ios-close-outline"></i></button>
+  <button class="ion-ios-heart-outline  yes-text" ng-click="cardSwipedRight($index)"></button>
+</ion-footer-bar>
 </ion-view>
 
 

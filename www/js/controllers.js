@@ -56,14 +56,14 @@ angular.module('starter.controllers', [])
            if (i == rand) {
              var movie = selected_snapshot.val();
              updateMovieWithPosterPath(movie);
-             var existingMovie = tenMovies.find(function(m){
-               return m.imdbID === movie.imdbID;
-             });
-             if (!existingMovie){
+           //  var existingMovie = tenMovies.find(function(m){
+           //    return m.imdbID === movie.imdbID;
+            // });
+            // if (!existingMovie){
                tenMovies.push(movie);
-             } else {
-               rand++;
-             }
+            // } else {
+            //   rand++;
+           //  }
            }
            i++;
          });
@@ -99,7 +99,7 @@ angular.module('starter.controllers', [])
     Selection.addGenres(genresByPoints);
   };
 
-  
+  /*
   $scope.save_movie = function (index) {
     liked_movies.push(tenMovies[index]);
     counter++;
@@ -107,8 +107,7 @@ angular.module('starter.controllers', [])
     if (counter === 3) {
         $scope.final_movies = liked_movies;
         $scope.pass_data();
-    }
-     
+    }     
   };
 
   $scope.next_movie = function () {
@@ -116,9 +115,8 @@ angular.module('starter.controllers', [])
     var currentIndex = tenMovies.indexOf($scope.currentMovie);
     $scope.currentMovie = tenMovies[currentIndex + 1];
   };
-  
+  */
   $scope.randomMovies(movieGenres);
-  
   
   $scope.start = function(){
    
@@ -138,17 +136,29 @@ angular.module('starter.controllers', [])
   }
   
       $scope.cardSwipedLeft = function(index) {
-        console.log('Left swipe');
-      
+    
+        /*
+        if ( index === 0  && counter > 1 ) {
+        $scope.final_movies = liked_movies;
+        $scope.pass_data();
+    } else if( index === 0  && counter <= 1 ) {
+      tenMovies = [];
+      $scope.randomMovies(movieGenres);
+      $scope.start();
+    }
+      */
     }
  
     $scope.cardSwipedRight = function(index) {
         liked_movies.push(tenMovies[index]);
+      console.log(liked_movies);
         counter++;
     
-    if (counter === 3) {
+    if ( index === 1  && counter > 1 ) {
         $scope.final_movies = liked_movies;
         $scope.pass_data();
+    } else if ( index === 1  && counter <= 1 ){
+      $scope.start();
     }
      
     };

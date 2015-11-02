@@ -5,15 +5,15 @@
       <div class="image"><img src="../img/first_movie_white.png" ng-src = "{{card.posterPath}}"/>
         
       </div>
-   <button class="ion-ios-close-outline no-text" ng-click="cardSwipedRight($index)" ng-mousedown="mouseDown()" ng-mouseup="mouseUp()"></button>
-        <button class="ion-ios-heart-outline  yes-text" ng-click="save_movie($currentMovie)"></button>
+   <button class="ion-ios-close-outline no-text" ng-click="cardSwipedLeft($index)"></button>
+        <button class="ion-ios-heart-outline  yes-text" ng-click="cardSwipedRight($index)"></button>
           </div>
   
     
     </td-card>
      
   </td-cards>
-     <div ng-if="!done"><img class="image" src="../img/first_movie_white.png"/></div>
+ 
   
   
    </ion-content>

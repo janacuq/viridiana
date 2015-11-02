@@ -1,177 +1,124 @@
-
 //To customize the look and feel of Ionic, you can override the variables
 //in ionic's _variables.scss file.
-
 //For example, you might change some of the default colors:
-
-$light:                           #fff!default;
-$stable:                          #D46956 !default;
-$positive:                        #FFD5B5 !default;
-$calm:                            #FF98AB !default;
-$balanced:                        #f8ade7!default;
-$energized:                       #B5DCFF !default;
-$assertive:                       #F8ADE7 !default;
-$royal:                           #B5DCFF !default;
-$dark:                            white !default;
-
-
-
-
-
+$light: #fff!default;
+$stable: #D46956 !default;
+$positive: #FFD5B5 !default;
+$calm: #FF98AB !default;
+$balanced: #f8ade7!default;
+$energized: #B5DCFF !default;
+$assertive: #F8ADE7 !default;
+$royal: #B5DCFF !default;
+$dark: white !default;
 // The path for our ionicons font files, relative to the built CSS in www/css
 $ionicons-font-path: "../lib/ionic/fonts" !default;
-
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
-
-body {  
-  cursor: url('http://ionicframework.com/img/finger.png'), auto; 
+body {
+  cursor: url('http://ionicframework.com/img/finger.png'), auto;
 }
-  
-
-
-
-html, ion-nav-bar,ion-nav-back-button,.button-clear,.ion-ios-arrow-left {
-  font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+html,
+ion-nav-bar,
+ion-nav-back-button,
+.button-clear,
+.ion-ios-arrow-left {
+  font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   color: $stable !important;
 }
-
 .bar.bar-dark {
   border-color: $stable;
   color: $stable;
   letter-spacing: 3px;
   .bar.bar-dark .title {
-      color: $stable; }
+    color: $stable;
+  }
 }
-
 ion-content {
-  background-color: #FFD384 ;
+  background-color: #FFD384;
   color: $stable;
-  
 }
 
 
-  ion-spinner {
-  position: absolute;
-  top: 25%; 
-  left: 45%; 
-  }
-
-  
-
-.row-bottom {
- width:80%;
- max-width: 500px;
- margin-left: auto;
- margin-right: auto;
- justify-content: space-between;
-    button {
-  background: none;
-  border: none;
-  width: 30%;
-    img{
-    width: 80%;
-    
-   }
-  }
-}
-
-
-
-
-
-
-
-
+//details-template
 .item-image {
   width: 100%;
   max-width: 500px;
   margin-bottom: -5px;
-    img {
+  img {
     width: 100%;
     max-width: 500px;
-  }  
+  }
 }
-
-
-
- 
-  
-
-
 .list-inset {
-  .item{
+  .item {
     background-color: white;
     border-color: white;
-    h3,p {
-    color: $stable;
-    font-family: "Roboto";
+    h3,
+    p {
+      color: $stable;
+      font-family: "Roboto";
     }
   }
 }
 
+//suggestions-template
 .padding .card {
   margin-left: auto;
   margin-right: auto;
   width: 80%;
   max-width: 400px;
   &.ng-enter {
-  -webkit-animation: fadeInLeft 1s;
-  animation: fadeInLeft 1s;
+    -webkit-animation: fadeInLeft 1s;
+    animation: fadeInLeft 1s;
   }
-  &.ng-enter-stagger{
-  -webkit-animation-delay:500ms;
-  animation-delay:500ms;
+  &.ng-enter-stagger {
+    -webkit-animation-delay: 500ms;
+    animation-delay: 500ms;
   }
   a {
-    h3{
-    font-family: 'Roboto';
-    color: $stable;
-    text-align: left; 
+    h3 {
+      font-family: 'Roboto';
+      color: $stable;
+      text-align: left;
     }
   }
 }
 
-
+//likes-template
 td-cards {
   display: block;
 }
-
 td-card {
   position: absolute;
   background-color: white;
-  border: 1px solid rgba(0,0,0,0.1);
-  box-shadow: 0px 3px 3px rgba(0,0,0,0.1);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.1);
   border-radius: 6px;
   padding: 10px;
   margin: 20px;
-  .swipe-card{
-  .image {
-    position: relative;
-   img {
-    width: 100%;
+  .swipe-card {
+    .image {
+      position: relative;
+      img {
+        width: 100%;
+      }
     }
-  }
-    .no-text{
-    color: $stable;
-    font-size: 3rem;
-    border: none;
-    background: none;
+    .no-text {
+      color: $stable;
+      font-size: 3rem;
+      border: none;
+      background: none;
       float: left;
     }
-    .yes-text{
-    color: $stable;
-    font-size: 3rem;
-    border: none;
-    background: none;
-    float: right;
-      &.activated{
-      color: black;
+    .yes-text {
+      color: $stable;
+      font-size: 3rem;
+      border: none;
+      background: none;
+      float: right;
+      &.activated {
+        color: black;
       }
     }
   }
 }
-
-
-
-    

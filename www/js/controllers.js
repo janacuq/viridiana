@@ -2,8 +2,14 @@ angular.module('starter.controllers', [])
 
 .controller('LandingCtrl', function ($scope) {})
 
-.controller('LikesCtrl', ["$scope", "$firebaseArray", "$location", "Selection", "$http", "$ionicModal", function ($scope, $firebaseArray, $location, Selection, $http, $ionicModal) {
+.controller('LikesCtrl', ["$scope", "$firebaseArray", "$location", "Selection", "$http", "$ionicModal", "$ionicHistory", function ($scope, $firebaseArray, $location, Selection, $http, $ionicModal, $ionicHistory) {
 
+  $ionicHistory.nextViewOptions({
+         disableAnimate: true,
+         disableBack: true
+});
+  
+  
   $scope.isLoading = true;
 
  var ref2 = new Firebase("https://viridiana.firebaseio.com/likes");

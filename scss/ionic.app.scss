@@ -20,8 +20,8 @@ body {
 html,
 ion-nav-bar,
 ion-nav-back-button,
-.button-clear,
-.ion-ios-arrow-left {
+.button-clear,.button-icon,
+.ion-ios-arrow-left,.ion-android-arrow-back,.ion-arrow-left-c {
   font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   color: $stable !important;
 }

@@ -132,7 +132,7 @@
     /**
      * Animation to fly the card away
     */
-    animateFlyAway: function(e) {
+    animateFlyAwayLeft: function(e) {
 
       // is animation triggered by drag or click?
       var draggable = (e !== undefined);
@@ -149,6 +149,68 @@
         deltaY: 400,
         velocityX: 0.1,
         targetX: -500,
+        targetY: -500,
+        duration: 5
+      }
+
+      this.rotationAngle = this.rotationAngle || defaults.rotationAngle;
+      this.thresholdAmount = this.thresholdAmount || defaults.thresholdAmount;
+
+      var deltaX = (draggable) ? e.gesture.deltaX : defaults.deltaX;
+      var deltaY = (draggable) ? e.gesture.deltaY : defaults.deltaY;
+
+      var angle = Math.atan(deltaX / deltaY);
+
+      var targetX;
+      if(draggable) {
+        targetX = (this.x > 0) ? (this.parentWidth / 2) + (this.width) : - (this.parentWidth + this.width);
+      } else {
+        targetX = defaults.targetX;
+      }
+
+      // Target Y is just the "opposite" side of the triangle of targetX as the adjacent edge (sohcahtoa yo)
+      var targetY;
+      if(draggable) {
+        targetY = targetX / Math.tan(angle);
+      } else {
+        targetY = defaults.targetY;
+      }
+
+      // Fly out
+      var rotateTo = this.rotationAngle;
+
+      var velocityX = (draggable) ? e.gesture.velocityX : defaults.velocityX;
+
+      var duration = 0.3 - Math.min(Math.max(Math.abs(velocityX)/10, 0.05), 0.2);
+
+      ionic.requestAnimationFrame(function() {
+        self.el.style.transform = self.el.style.webkitTransform = 'translate3d(' + targetX + 'px, ' + targetY + 'px,0) rotate(' + self.rotationAngle + 'rad)';
+        self.el.style.transition = self.el.style.webkitTransition = 'all ' + duration + 's ease-in-out';
+      });
+
+      // Trigger destroy after card has swiped out
+      setTimeout(function() {
+        self.onDestroy && self.onDestroy();
+      }, duration * 1000);
+
+    },
+    animateFlyAwayRight: function(e) {
+
+      // is animation triggered by drag or click?
+      var draggable = (e !== undefined);
+
+      var self = this;
+
+      self.onTransitionOut(self.thresholdAmount);
+
+      // defaults for animation triggered by click
+      var defaults = {
+        thresholdAmount: 0,
+        rotationAngle: 0.5,
+        deltaX: 400,
+        deltaY: 400,
+        velocityX: 0.1,
+        targetX: 500,
         targetY: -500,
         duration: 5
       }
@@ -345,16 +407,37 @@
         onTransitionOut: '&',
         onPartialSwipe: '&',
         onSnapBack: '&',
-        onDestroy: '&'
+        onDestroy: '&',
+   
       },
        controller: ['$scope', '$element', function($scope, $element) {
         // Emits event 'removeCard' which should have a listener in a parent scope
-        $scope.$parent.onClickTransitionOut = function(card) {
+        $scope.$parent.onClickTransitionOutLeft = function(card) {
           var element = $scope.$parent.swipeCard;
-          element.onClickTransitionOut();
-          $scope.$emit('removeCard', element, card);
+          element.onClickTransitionOutLeft();
+          $scope.$emit('removeCardLeft', element, card);
+          
+        }
+        $scope.$parent.onClickTransitionOutRight = function(card) {
+          var element = $scope.$parent.swipeCard;
+          element.onClickTransitionOutRight();
+          $scope.$emit('removeCardRight', element, card);
+          
+        }
+        
+        
+      }],
+      /*
+       controller: ['$scope', '$element', function($scope, $element) {
+        // Emits event 'removeCard' which should have a listener in a parent scope
+        $scope.$parent.onClickTransitionOutRight = function(card) {
+          var element = $scope.$parent.swipeCard;
+          element.onClickTransitionOutRight();
+          $scope.$emit('removeCardRight', element, card);
+          
         }
       }],
+      */
       compile: function(element, attr) {
         return function($scope, $element, $attr, swipeCards) {
           var el = $element[0];
@@ -413,9 +496,15 @@
                 $scope.onTransitionOut({amt: amt});
               });
             },
-            onClickTransitionOut: function() {
+            onClickTransitionOutLeft: function() {
               var self = this;
-              self.animateFlyAway();
+              self.animateFlyAwayLeft();
+
+              swipeCards.partial(1);
+            },
+            onClickTransitionOutRight: function() {
+              var self = this;
+              self.animateFlyAwayRight();
 
               swipeCards.partial(1);
             },

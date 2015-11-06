@@ -7749,6 +7749,12 @@ td-card {
     td-card .swipe-card .image img {
       width: 100%; }
 
+ion-footer-bar i {
+  vertical-align: top;
+  display: inline-block;
+  line-height: 16px; }
+  ion-footer-bar i:before {
+    font-size: 66%; }
 ion-footer-bar .no-text {
   color: #D46956;
   font-size: 3rem;

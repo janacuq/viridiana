@@ -107,6 +107,14 @@ td-card {
 }
 
 ion-footer-bar {
+  i {
+    &:before {
+      font-size:66%;
+    }
+    vertical-align: top;
+    display: inline-block;
+    line-height: 16px;
+  }
    .no-text {
       color: $stable;
       font-size: 3rem;

@@ -105,23 +105,6 @@ angular.module('starter.controllers', [])
     Selection.addGenres(genresByPoints);
   };
 
-  /*
-  $scope.save_movie = function (index) {
-    liked_movies.push(tenMovies[index]);
-    counter++;
-    cardSwipeRight(index);
-    if (counter === 3) {
-        $scope.final_movies = liked_movies;
-        $scope.pass_data();
-    }     
-  };
-
-  $scope.next_movie = function () {
-    $scope.clicked = false;
-    var currentIndex = tenMovies.indexOf($scope.currentMovie);
-    $scope.currentMovie = tenMovies[currentIndex + 1];
-  };
-  */
   $scope.randomMovies(movieGenres);
   
   $scope.start = function(){
@@ -134,14 +117,12 @@ angular.module('starter.controllers', [])
     $scope.cards.splice(index, 1);
     
   };
-  /*
-  $scope.addCard = function() {
-    var newCard = tenMovies[Math.floor(Math.random() * tenMovies.length)];
-    newCard.id = Math.random();
-    $scope.cards.push(newCard);
-  };
-  */
+ 
   $scope.cardSwipedLeft = function(index) {
+      if (index === undefined){
+       index = document.querySelector('td-cards').querySelectorAll("td-card").length - 1;
+        debugger
+      }
      
       if ( index === 0  && counter > 1 ) {
       $scope.final_movies = liked_movies;
@@ -154,6 +135,9 @@ angular.module('starter.controllers', [])
   };
  
     $scope.cardSwipedRight = function(index) {
+         if (index === undefined){
+       index = document.querySelector('td-cards').querySelectorAll("td-card").length - 1;
+      }
       liked_movies.push(tenMovies[index]);
       console.log(liked_movies);
       counter++;

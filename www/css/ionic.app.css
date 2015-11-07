@@ -7699,7 +7699,7 @@ html, ion-nav-bar, ion-nav-back-button, .button-clear, .button-icon, .ion-ios-ar
     color: #D46956; }
 
 ion-content {
-  background-color: #FFD384;
+  background-color: white;
   color: #D46956; }
 
 .item-image {
@@ -7749,17 +7749,19 @@ td-card {
     td-card .swipe-card .image img {
       width: 100%; }
   td-card .no-text {
-    color: #D46956;
-    font-size: 3rem;
     border: none;
     background: none;
     float: left; }
+    td-card .no-text img {
+      width: 50%;
+      float: left; }
   td-card .yes-text {
-    color: #D46956;
-    font-size: 3rem;
+    float: right;
     border: none;
-    background: none;
-    float: right; }
+    background: none; }
+    td-card .yes-text img {
+      width: 50%;
+      float: right; }
     td-card .yes-text.activated {
       color: black; }
 

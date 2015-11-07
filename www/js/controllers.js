@@ -17,24 +17,14 @@ angular.module('starter.controllers', [])
  $scope.data = $firebaseArray(ref2); //array of all likes movies
  $scope.final_movies = null;
  $scope.currentMovie = null;
- window.skope = $scope;
- $scope.clicked = true;
  $scope.done = false;
  var counter = 0;
  var tenMovies = [];
  var liked_movies = [];
  var movieGenres = ["genres/War", "genres/Thriller", "genres/Romance", "genres/Animation", "genres/Crime", "genres/Fantasy", "genres/Drama", "genres/Adventure"];
 
-  $scope.icon = '/img/cross-icon.png';
-  $scope.mouseUp = function() {
-    $scope.icon = '/img/cross-icon.png';
-  };
- 
-  $scope.mouseDown = function() {
-    $scope.icon = '/img/cross-icon-hover.png';
-  };
- 
   
+
  var updateMovieWithPosterPath = function(movie){
    var url = 'http://api.themoviedb.org/3/find/' + movie.imdbID + '?external_source=imdb_id&api_key=8476e72920cda228501fdc61e9457aa0'
    $http.get(url).then(function(response){

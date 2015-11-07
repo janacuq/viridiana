@@ -34,7 +34,7 @@ ion-nav-back-button,
   }
 }
 ion-content {
-  background-color: #FFD384;
+  background-color: white;
   color: $stable;
 }
 
@@ -105,18 +105,22 @@ td-card {
    }
   }
    .no-text {
-      color: $stable;
-      font-size: 3rem;
       border: none;
       background: none;
       float: left;
+     img {
+     width: 50%;
+     float: left;
+     }
     }
     .yes-text {
-      color: $stable;
-      font-size: 3rem;
+      float: right;
       border: none;
       background: none;
-      float: right;
+      img {
+      width: 50%;
+     float: right;
+      }
       &.activated {
         color: black;
       }

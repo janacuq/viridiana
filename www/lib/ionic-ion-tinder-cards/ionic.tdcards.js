@@ -427,17 +427,6 @@
         
         
       }],
-      /*
-       controller: ['$scope', '$element', function($scope, $element) {
-        // Emits event 'removeCard' which should have a listener in a parent scope
-        $scope.$parent.onClickTransitionOutRight = function(card) {
-          var element = $scope.$parent.swipeCard;
-          element.onClickTransitionOutRight();
-          $scope.$emit('removeCardRight', element, card);
-          
-        }
-      }],
-      */
       compile: function(element, attr) {
         return function($scope, $element, $attr, swipeCards) {
           var el = $element[0];

@@ -28,7 +28,6 @@ ion-nav-back-button,
 .bar.bar-dark {
   border-color: $stable;
   color: $stable;
-  letter-spacing: 3px;
   .bar.bar-dark .title {
     color: $stable;
   }
@@ -53,10 +52,12 @@ ion-content {
   .item {
     background-color: white;
     border-color: white;
+    padding-bottom: 5px;
     h3,
-    p {
+    p, a, span {
       color: $stable;
       font-family: "Roboto";
+      
     }
   }
 }

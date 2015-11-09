@@ -51,7 +51,7 @@ var app = angular.module('starter', ['ionic', 'ionic.contrib.ui.tinderCards', 'f
     controller: 'DetailsCtrl'
   });
   
-  $urlRouterProvider.otherwise('/likes');
+  $urlRouterProvider.otherwise('/landing');
   
 
 })

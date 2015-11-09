@@ -7693,8 +7693,7 @@ html, ion-nav-bar, ion-nav-back-button, .button-clear, .button-icon, .ion-ios-ar
 
 .bar.bar-dark {
   border-color: #D46956;
-  color: #D46956;
-  letter-spacing: 3px; }
+  color: #D46956; }
   .bar.bar-dark .bar.bar-dark .title {
     color: #D46956; }
 
@@ -7712,8 +7711,9 @@ ion-content {
 
 .list-inset .item {
   background-color: white;
-  border-color: white; }
-  .list-inset .item h3, .list-inset .item p {
+  border-color: white;
+  padding-bottom: 5px; }
+  .list-inset .item h3, .list-inset .item p, .list-inset .item a, .list-inset .item span {
     color: #D46956;
     font-family: "Roboto"; }
 

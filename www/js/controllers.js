@@ -2,7 +2,7 @@ angular.module('starter.controllers', [])
 
 .controller('LandingCtrl', function ($scope) {})
 
-.controller('LikesCtrl', ["$scope", "$firebaseArray", "$location", "Selection", "$http", "$ionicModal", "$ionicHistory", function ($scope, $firebaseArray, $location, Selection, $http, $ionicModal, $ionicHistory) {
+.controller('LikesCtrl', ["$scope", "$firebaseArray", "$location", "Selection", "$http", "$ionicModal", "$ionicHistory","$ionicLoading", function ($scope, $firebaseArray, $location, Selection, $http, $ionicModal, $ionicHistory, $ionicLoading) {
 
   $ionicHistory.nextViewOptions({
          disableAnimate: true,
@@ -10,8 +10,18 @@ angular.module('starter.controllers', [])
 });
   
   
-  $scope.isLoading = true;
+  $scope.show = function(){
+  $ionicLoading.show({
+    template: '<p>Loading Movies...</p><ion-spinner icon="circles" class="spinner-stable"></ion-spinner>'
+  });
+  };
+ 
+  $scope.hide = function(){
+  
+    $ionicLoading.hide();
+  };
 
+   $scope.show($ionicLoading);
  var ref2 = new Firebase("https://viridiana.firebaseio.com/likes");
   $scope.mostrar = false;
  $scope.data = $firebaseArray(ref2); //array of all likes movies
@@ -64,7 +74,7 @@ angular.module('starter.controllers', [])
            i++;
          });
          $scope.currentMovie = tenMovies[0];
-          $scope.isLoading = false;
+           $scope.hide($ionicLoading);
          console.log(tenMovies);
  
        });
@@ -143,8 +153,12 @@ angular.module('starter.controllers', [])
   
     $scope.$on('removeCardRight', function(event, element, card) {
        
-       index = document.querySelector('td-cards').querySelectorAll("td-card").length - 1;         
-     console.log(index);
+       index = document.querySelector('td-cards').querySelectorAll("td-card").length - 1;    
+      $scope.mostrar = true;
+      console.log(index);
+      liked_movies.push(tenMovies[index]);
+      console.log(liked_movies);
+      counter++;
       if ( index === 0  && counter > 1 ) {
       $scope.final_movies = liked_movies;
       $scope.pass_data();
@@ -205,12 +219,6 @@ angular.module('starter.controllers', [])
 
 
 .controller('SuggestionsCtrl', function ($scope, Selection, $http, $timeout, $ionicLoading){
-  
-  $scope.reload = function() {
-    console.log('Hola');
-    $state.go('likes');
-};
-  
   
   
    $scope.show = function(){

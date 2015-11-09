@@ -1,4 +1,4 @@
-<ion-view view-title="Movie info">
+<ion-view view-title="{{spanish.title}}">
 
 
   <ion-content>
@@ -6,15 +6,7 @@
     <div class="list list-inset">
       <div class="item item-text-wrap">
 
-        <h3><strong>Title</strong></h3>
-        <p>{{spanish.title}}</p>
-
-      </div>
-      <div class="item item-text-wrap">
-
-        <h3><strong>Year</strong></h3>
-        <p>{{spanish.year}}</p>
-
+        <h3><strong>{{spanish.title}} {{spanish.year}}</strong></h3>
       </div>
       <div class="item item-text-wrap">
 
@@ -31,16 +23,22 @@
       <div class="item item-text-wrap">
 
         <h3><strong>Plot</strong></h3>
-        <p>"{{spanish.plot}}</p>
+        <p>{{spanish.plot}}</p>
 
       </div>
       <div class="item item-text-wrap">
 
-        <h3><strong>Imdb</strong></h3>
-        <p>{{spanish.imdbRating}}</p>
+        <h3><strong>Awards</strong></h3>
+        <p>{{spanish.awards}}</p>
 
       </div>
-    
+       
+      <div class="item item-text-wrap">
+
+        <h3><strong>Reviews</strong></h3>
+        <a href="http://www.imdb.com/title/{{spanish.imdbID}}/externalreviews" target="_blank">Find reviews in different languages</a>
+
+      </div>
     </div>
   </ion-content>
 </ion-view>

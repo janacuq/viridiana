@@ -5,11 +5,11 @@
     <td-card ng-repeat="card in cards" on-destroy="cardDestroyed($index)"  on-swipe-left="cardSwipedLeft($index)" on-swipe-right="cardSwipedRight($index)" on-partial-swipe="cardPartialSwipe(amt)" class="card-{{$index}}">
       <div class="image">
       <img src="../img/first_movie_white.png" ng-src = "{{card.posterPath}}"/>
-      <div class="liked" ng-if="mostrar"><i class="ion-ios-heart"></i></div>
       </div>
        <button class="no-text" ng-click="onClickTransitionOutLeft(card)"><img src="../img/cross-icon.png"/></button>
       <button class="yes-text" ng-click="onClickTransitionOutRight(card)"><img src="../img/heart-icon.png"/></button>
     </td-card>   
+    <div ng-class="{'liked': mostrar}"><i class="ion-ios-heart"></i></div>
   </td-cards>
    </ion-content>
 </ion-view>

@@ -1,6 +1,13 @@
 angular.module('starter.controllers', [])
 
-.controller('LandingCtrl', function ($scope) {})
+.controller('LandingCtrl', function ($scope, $ionicHistory) {
+
+ $ionicHistory.nextViewOptions({
+         disableAnimate: true,
+         disableBack: true
+});
+  
+})
 
 .controller('LikesCtrl', ["$scope", "$firebaseArray", "$location", "Selection", "$http", "$ionicModal", "$ionicHistory","$ionicLoading", function ($scope, $firebaseArray, $location, Selection, $http, $ionicModal, $ionicHistory, $ionicLoading) {
 
@@ -11,23 +18,20 @@ angular.module('starter.controllers', [])
   
   
   $scope.show = function(){
-  $ionicLoading.show({
-    template: '<p>Loading Movies...</p><ion-spinner icon="circles" class="spinner-stable"></ion-spinner>'
-  });
+    $ionicLoading.show({
+    template: '<p>Loading Movies...</p><ion-spinner class="spinner-stable"></ion-spinner>'
+    });
   };
  
   $scope.hide = function(){
-  
     $ionicLoading.hide();
   };
 
-   $scope.show($ionicLoading);
+ $scope.show($ionicLoading);
  var ref2 = new Firebase("https://viridiana.firebaseio.com/likes");
-  $scope.mostrar = false;
+ $scope.mostrar = false;
  $scope.data = $firebaseArray(ref2); //array of all likes movies
  $scope.final_movies = null;
- $scope.currentMovie = null;
- $scope.done = false;
  var counter = 0;
  var tenMovies = [];
  var liked_movies = [];
@@ -73,14 +77,13 @@ angular.module('starter.controllers', [])
            }
            i++;
          });
-         $scope.currentMovie = tenMovies[0];
-           $scope.hide($ionicLoading);
-         console.log(tenMovies);
- 
+         $scope.start();
+         $scope.hide($ionicLoading);
        });
+        
      }
-     return tenMovies;
-
+     return tenMovies;   
+   
    };
   
 
@@ -110,7 +113,6 @@ angular.module('starter.controllers', [])
   $scope.start = function(){
    
   $scope.cards = Array.prototype.slice.call(tenMovies, 0);
-    $scope.done = true;
   };
   
    $scope.cardDestroyed = function(index) {
@@ -201,7 +203,7 @@ angular.module('starter.controllers', [])
 
 
 
-
+/*
 .controller('PopupCtrl', function ($scope, $ionicPopup, $timeout) {
 
   $scope.showAlert = function () {
@@ -216,14 +218,14 @@ angular.module('starter.controllers', [])
     });
   };
 })
-
+*/
 
 .controller('SuggestionsCtrl', function ($scope, Selection, $http, $timeout, $ionicLoading){
   
   
    $scope.show = function(){
   $ionicLoading.show({
-    template: '<p>Loading Movies...</p><ion-spinner icon="circles" class="spinner-stable"></ion-spinner>'
+    template: '<p>Loading Spanish Movies...</p><ion-spinner class="spinner-stable"></ion-spinner>'
   });
   };
  
@@ -267,7 +269,7 @@ angular.module('starter.controllers', [])
             j++;
           });
             Selection.addSpanish($scope.movies);
-            
+            $scope.hide($ionicLoading); 
         }); 
      }
      
@@ -278,7 +280,7 @@ angular.module('starter.controllers', [])
    var url = 'http://api.themoviedb.org/3/find/' + movie.imdbID + '?external_source=imdb_id&api_key=8476e72920cda228501fdc61e9457aa0'
    $http.get(url).then(function(response){
      movie.posterPath = 'http://image.tmdb.org/t/p/w500' + response.data.movie_results.concat(response.data.tv_results)[0].poster_path;
-       $scope.hide($ionicLoading); 
+       
    });
  };
 

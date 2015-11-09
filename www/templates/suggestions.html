@@ -5,7 +5,7 @@
 
  <div class="list card" ng-repeat="movie in movies">
     <div class="item item-image" > 
-      <img ng-src="{{movie.posterPath}}">
+      <img ng-src="{{movie.posterPath}}" ui-sref="details/{{movie.imdbID}}"/>
     </div>
     <a href="#/details/{{movie.imdbID}}" class="item item-icon-right dark" >
       <h3>{{movie.title}} ({{movie.year}})</h3>

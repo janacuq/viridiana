@@ -172,7 +172,14 @@ angular.module('starter.controllers', [])
      
      
   });
-  
+
+    setTimeout(function(){
+      document.querySelector('.animated-heart').addEventListener('animationend', function(e){
+        $scope.$apply(function() {
+          $scope.mostrar = false;
+        });
+      }, true);
+    });
  
     $scope.cardSwipedRight = function(index) {
       $scope.mostrar = true;

@@ -60,27 +60,15 @@ angular.module('starter.controllers', [])
      for (var i = 0; i < array.length; i++) {
        var queryRef = ref2.orderByChild(array[i]).equalTo(true).limitToFirst(30);
        queryRef.on("value", function (snapshot) {
-         var i = 0;
+         var allMovies = snapshot.val();
          var rand = Math.floor(Math.random() * snapshot.numChildren());
-         snapshot.forEach(function (selected_snapshot) {
-           if (i == rand) {
-             var movie = selected_snapshot.val();
-             updateMovieWithPosterPath(movie);
-           //  var existingMovie = tenMovies.find(function(m){
-           //    return m.imdbID === movie.imdbID;
-            // });
-            // if (!existingMovie){
-               tenMovies.push(movie);
-            // } else {
-            //   rand++;
-           //  }
-           }
-           i++;
-         });
+         var randomKey = Object.keys(allMovies)[rand];
+         var movie = allMovies[randomKey];
+         updateMovieWithPosterPath(movie);
+         tenMovies.push(movie);
          $scope.start();
          $scope.hide($ionicLoading);
        });
-        
      }
      return tenMovies;   
    

@@ -142,7 +142,7 @@ angular.module('starter.controllers', [])
    
   
     $scope.$on('removeCardRight', function(event, element, card) {
-       
+        $scope.mostrar = true;
        index = document.querySelector('td-cards').querySelectorAll("td-card").length - 1;    
       $scope.mostrar = true;
       console.log(index);
@@ -222,6 +222,12 @@ angular.module('starter.controllers', [])
   $ionicLoading.show({
     template: '<p>Loading Spanish Movies...</p><ion-spinner class="spinner-stable"></ion-spinner>'
   });
+  };
+  
+  $scope.reload = function(){
+  location.href = '/#/likes';
+    
+    location.reload();
   };
  
   $scope.hide = function(){

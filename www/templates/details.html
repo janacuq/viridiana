@@ -5,38 +5,37 @@
 
     <div class="list list-inset animated flipInY">
       <div class="item item-text-wrap">
-
-        <h3><strong>{{spanish.title}} {{spanish.year}}</strong></h3>
+        <h3>Original Title</h3>
+        <p>{{spanish.title}}</p>
       </div>
       <div class="item item-text-wrap">
 
-        <h3><strong>Director</strong></h3>
+        <h3>Director</h3>
         <p>{{spanish.cast.directors | string}}</p>
 
       </div>
       <div class="item item-text-wrap">
 
-        <h3><strong>Cast</strong></h3>
+        <h3>Cast</h3>
         <p>{{spanish.cast.actors | string }}</p>
 
       </div>
       <div class="item item-text-wrap">
 
-        <h3><strong>Plot</strong></h3>
+        <h3>Plot</h3>
         <p>{{spanish.plot}}</p>
 
       </div>
       <div class="item item-text-wrap">
 
-        <h3><strong>Awards</strong></h3>
+        <h3>Awards</h3>
         <p>{{spanish.awards}}</p>
 
       </div>
        
       <div class="item item-text-wrap">
 
-      
-        <a href="http://www.imdb.com/title/{{spanish.imdbID}}/externalreviews" target="_blank"><strong>Reviews</strong></a>
+        <a href="http://www.imdb.com/title/{{spanish.imdbID}}/externalreviews" onClick="$window.open(this.ref,'_blank', 'location=yes');return false;">Reviews</a>
 
       </div>
     </div>

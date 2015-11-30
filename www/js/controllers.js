@@ -11,11 +11,14 @@ angular.module('starter.controllers', [])
 
 .controller('LikesCtrl', ["$scope", "$firebaseArray", "$location", "Selection", "$http", "$ionicModal", "$ionicHistory","$ionicLoading", function ($scope, $firebaseArray, $location, Selection, $http, $ionicModal, $ionicHistory, $ionicLoading) {
 
-  $ionicHistory.nextViewOptions({
+ $ionicHistory.nextViewOptions({
          disableAnimate: true,
          disableBack: true
 });
   
+   
+   
+ 
   
   $scope.show = function(){
     $ionicLoading.show({
@@ -67,7 +70,6 @@ angular.module('starter.controllers', [])
          updateMovieWithPosterPath(movie);
          tenMovies.push(movie);
          $scope.start();
-         $scope.hide($ionicLoading);
        });
      }
      return tenMovies;   
@@ -101,6 +103,8 @@ angular.module('starter.controllers', [])
   $scope.start = function(){
    
   $scope.cards = Array.prototype.slice.call(tenMovies, 0);
+           $scope.hide($ionicLoading);
+
   };
   
    $scope.cardDestroyed = function(index) {
@@ -133,7 +137,9 @@ angular.module('starter.controllers', [])
       $scope.pass_data();
     } else if( index === 0  && counter <= 1 ) {
       tenMovies = [];
+      
       $scope.randomMovies(movieGenres);
+       $scope.show($ionicLoading);
       $scope.start();
     }
      
@@ -192,7 +198,11 @@ angular.module('starter.controllers', [])
 .controller('DetailsCtrl', function ($scope, $stateParams, Selection) {
   var imdbID = $stateParams.imdbID;
   $scope.spanish = Selection.get($stateParams.imdbID);
+ 
   
+  
+  
+ 
 })
 
 
@@ -230,6 +240,9 @@ angular.module('starter.controllers', [])
     location.reload();
   };
  
+  
+
+  
   $scope.hide = function(){
   
     $ionicLoading.hide();
@@ -257,24 +270,20 @@ angular.module('starter.controllers', [])
       var queryRef = ref.orderByChild(array[i]).equalTo(true).limitToFirst(40);
 
       queryRef.on("value", function (snapshot) {
-
-        var j = 0;
+        var allMovies = snapshot.val();
         var rand = Math.floor(Math.random() * snapshot.numChildren());
-        snapshot.forEach(function (selected_snapshot) {
-            if (j == rand) {
-             var movie = selected_snapshot.val();
-             updateMovieWithPosterPath(movie);
-             $scope.movies.push(movie)
-             $scope.$apply();
-            }
-            j++;
-          });
-            Selection.addSpanish($scope.movies);
-            $scope.hide($ionicLoading); 
+        var randomKey = Object.keys(allMovies)[rand];
+        var movie = allMovies[randomKey];
+        updateMovieWithPosterPath(movie);
+        $scope.movies.push(movie);
+        $scope.$apply();
+        Selection.addSpanish($scope.movies);
+           $scope.hide($ionicLoading); 
         }); 
-     }
-     
-    };
+       
+    } 
+
+};
   randomMovies(topGenres);
   
    var updateMovieWithPosterPath = function(movie){

@@ -1,4 +1,4 @@
-<ion-view view-title="VIRIDIANA">
+<ion-view title='<img class="title-image" src="../img/ionictitle.png" />'>
   <ion-content>
    
   <td-cards>
@@ -6,8 +6,8 @@
       <div class="image">
       <img class="animated bounceIn" src="../img/white.png" ng-src = "{{card.posterPath}}"/>
       </div>
-       <button class="no-text" ng-click="onClickTransitionOutLeft(card)"><img src="../img/cross-icon.png"/></button>
-      <button class="yes-text" ng-click="onClickTransitionOutRight(card)"><img src="../img/heart-icon.png"/></button>
+       <button class="no-text" ng-click="onClickTransitionOutLeft(card)"><img src="../img/cross.png"/></button>
+      <button class="yes-text" ng-click="onClickTransitionOutRight(card)"><img src="../img/heart.png"/></button>
     </td-card>   
     <div class="animated-heart" ng-class="{'liked': mostrar}"><i class="ion-ios-heart"></i></div>
   </td-cards>

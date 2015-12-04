@@ -4,37 +4,38 @@
   <ion-content>
 
     <div class="list list-inset animated flipInY">
-      <div class="item item-text-wrap">
+      <div class="item item-avatar item-text-wrap">
+        <img src="../img/director.png">
         <h3>Original Title</h3>
         <p>{{spanish.title}}</p>
       </div>
-      <div class="item item-text-wrap">
-
+      <div class="item item-avatar item-text-wrap">
+         <img src="../img/chair.png">
         <h3>Director</h3>
         <p>{{spanish.cast.directors | string}}</p>
 
       </div>
-      <div class="item item-text-wrap">
-
+      <div class="item item-avatar item-text-wrap">
+        <img src="../img/cast.png">
         <h3>Cast</h3>
         <p>{{spanish.cast.actors | string }}</p>
 
       </div>
-      <div class="item item-text-wrap">
-
+      <div class="item item-avatar item-text-wrap">
+        <img src="../img/plot.png">
         <h3>Plot</h3>
         <p>{{spanish.plot}}</p>
 
       </div>
-      <div class="item item-text-wrap">
-
+      <div class="item item-avatar item-text-wrap">
+        <img src="../img/awards.png">
         <h3>Awards</h3>
         <p>{{spanish.awards}}</p>
 
       </div>
        
-      <div class="item item-text-wrap">
-
+      <div class="item item-avatar item-text-wrap">
+        <img src="../img/reviews.png">
         <a href="http://www.imdb.com/title/{{spanish.imdbID}}/externalreviews" onClick="$window.open(this.ref,'_blank', 'location=yes');return false;">Reviews</a>
 
       </div>

@@ -11,10 +11,10 @@ angular.module('starter.controllers', [])
 
 .controller('LikesCtrl', ["$scope", "$firebaseArray", "$location", "Selection", "$http", "$ionicModal", "$ionicHistory","$ionicLoading", function ($scope, $firebaseArray, $location, Selection, $http, $ionicModal, $ionicHistory, $ionicLoading) {
 
- $ionicHistory.nextViewOptions({
-         disableAnimate: true,
-         disableBack: true
-});
+// $ionicHistory.nextViewOptions({
+//         disableAnimate: true,
+//         disableBack: true
+//});
   
    
    
@@ -200,33 +200,36 @@ angular.module('starter.controllers', [])
   $scope.spanish = Selection.get($stateParams.imdbID);
  
   
-  
-  
  
 })
 
 
 
 
-/*
+
 .controller('PopupCtrl', function ($scope, $ionicPopup, $timeout) {
 
   $scope.showAlert = function () {
-    var alertPopup = $ionicPopup.alert({
-    title: 'Welcome!',
-    template: 'Let us know your tastes! If you like the movie we are showing tap the like button, otherwise swipe to the right and we will show you more!',
-    okText: 'Got it!',
-    okType: 'button button-light'
+    var confirmPopup = $ionicPopup.confirm({
+    title: 'Warning',
+    template: 'Are you sure you want to play again and loose your current suggestions?',
+    okText: 'Sure!',
+    okType: 'button button-light',
+    cancelText: 'Not yet!',
+    cancelType: 'button button-light'
     });
-      alertPopup.then(function (res) {
-        $scope.start();
+      confirmPopup.then(function (res) {
+        if(res) {
+         location.href = '/#/likes';
+         location.reload();
+        } 
     });
   };
 })
-*/
+
 
 .controller('SuggestionsCtrl', function ($scope, Selection, $http, $timeout, $ionicLoading){
-  
+    
   
    $scope.show = function(){
   $ionicLoading.show({
@@ -236,8 +239,7 @@ angular.module('starter.controllers', [])
   
   $scope.reload = function(){
   location.href = '/#/likes';
-    
-    location.reload();
+  location.reload();
   };
  
   

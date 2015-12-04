@@ -5,8 +5,8 @@ $light: #fff!default;
 $stable: #FF3F00 !default;
 $positive: #FFD5B5 !default;
 $calm: #FF98AB !default;
-$balanced: #f8ade7!default;
-$energized: #B5DCFF !default;
+$balanced: #B0AFAF!default;
+$energized: #FF3F00 !default;
 $assertive: #F8ADE7 !default;
 $royal: #181715 !default;
 $dark: white !default;
@@ -27,8 +27,8 @@ ion-nav-back-button,
   color: $stable !important;
 }
 .bar.bar-dark {
-  border-color: $stable;
   color: $stable;
+  border-color: #EAF6F3 !important;
   background-color: #EAF6F3 !important;
   .bar.bar-dark .title {
     color: $stable;
@@ -38,9 +38,10 @@ ion-nav-back-button,
 
 
 .title-image {
+    display: block;
+    margin: 0 auto; 
     margin-top: 8px;
     height: 27px;
-    margin-left: 45%;
 }
 
 ion-content {
@@ -60,18 +61,25 @@ background-color: rgba(255, 255, 255, 0.5);
   max-width:500px;
   margin: 0 auto;
 img{
+padding-top: 5%;
+display: block;
+margin: 0 auto;
 width: 335px;
 max-width: 500px;}
 p{
 text-align: center;
 padding: 5%;
 margin: 0 auto;
-font-size: 20px;
-font-family: "Roboto";
+font-size: 17px;
+font-family: "Nunito";
 font-weight: 100;
-color: $royal;}
+color: $balanced;
+padding-top: 15%;}
 }
-
+.bar-footer {
+background-color: white;
+background-position: none;
+}
 
 
 //details-template
@@ -88,6 +96,7 @@ color: $royal;}
 
 //details template
 .list-inset {
+  margin: 0px;
   .item {
     background-color: white;
     border-color: white;
@@ -96,7 +105,7 @@ color: $royal;}
     max-height: 25px;
     max-width: 25px;
     top: 20px;
-    left: 20px;
+    left: 15px;
     border-radius: 0% !important;}
     h3 {
     color: $royal;
@@ -105,14 +114,14 @@ color: $royal;}
     font-weight: 300;
     padding-bottom: 10px;
     border-bottom: solid 1px;
-    margin-left: -10px;
+    margin-left: -15px;
     }
-    p, a, span {
+    p, a {
       color: $royal;
       font-family: "Nunito";
       letter-spacing: 1px;
       font-weight: 300;
-      margin-left: -10px;
+      margin-left: -15px;
     }
   }
 }
@@ -220,7 +229,10 @@ td-card {
 }
 
 
+.button.button-block {
+margin: 0px !important;
 
+}
 
 
 

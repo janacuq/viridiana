@@ -203,11 +203,11 @@ angular.module('starter.controllers', [])
 
   $scope.showAlert = function () {
     var confirmPopup = $ionicPopup.confirm({
-    title: 'Warning',
-    template: 'Are you sure you want to play again and loose your current suggestions?',
-    okText: 'Sure!',
+    title: 'Watch out!',
+    template: 'You are about to loose your current suggestions and play again. Sure?',
+    okText: 'Yep!',
     okType: 'button button-light',
-    cancelText: 'Not yet!',
+    cancelText: 'Nop!',
     cancelType: 'button button-light'
     });
       confirmPopup.then(function (res) {
@@ -289,3 +289,7 @@ angular.module('starter.controllers', [])
  };
 
 });
+
+
+
+

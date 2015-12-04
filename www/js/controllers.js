@@ -11,15 +11,7 @@ angular.module('starter.controllers', [])
 
 .controller('LikesCtrl', ["$scope", "$firebaseArray", "$location", "Selection", "$http", "$ionicModal", "$ionicHistory","$ionicLoading", function ($scope, $firebaseArray, $location, Selection, $http, $ionicModal, $ionicHistory, $ionicLoading) {
 
-// $ionicHistory.nextViewOptions({
-//         disableAnimate: true,
-//         disableBack: true
-//});
-  
-   
-   
- 
-  
+
   $scope.show = function(){
     $ionicLoading.show({
     template: '<p>Loading Movies...</p><ion-spinner class="spinner-stable"></ion-spinner>'

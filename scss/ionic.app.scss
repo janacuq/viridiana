@@ -46,6 +46,10 @@ ion-nav-back-button,
 ion-content {
   background-color: white;
   color: $stable;
+  .scroll {
+  min-height: 100%;
+  height: 100%;
+  }
 }
 .loading-container .loading{
 background-color: rgba(255, 255, 255, 0.5);
@@ -67,6 +71,9 @@ font-family: "Roboto";
 font-weight: 100;
 color: $royal;}
 }
+
+
+
 //details-template
 .item-image {
   width: 100%;
@@ -212,14 +219,8 @@ td-card {
   100% {transform:scale(.8);opacity:0;}
 }
 
-.playagain {
-
-background: black;
-width: 60%;
-margin-left: 45%;
-border: 1px solid white;
-border-radius: 50%;
 
 
 
-}
+
+

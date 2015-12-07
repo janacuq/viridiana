@@ -1,6 +1,6 @@
 <ion-view title='<img class="title-image" src="../img/ionictitle.png" />'>
   <ion-content>
-   
+  
   <td-cards>
     <td-card ng-repeat="card in cards" on-destroy="cardDestroyed($index)"  on-swipe-left="cardSwipedLeft($index)" on-swipe-right="cardSwipedRight($index)" on-partial-swipe="cardPartialSwipe(amt)" class="card-{{$index}}">
       <div class="image">
@@ -11,6 +11,7 @@
     </td-card>   
     <div class="animated-heart" ng-class="{'liked': mostrar}"><i class="ion-ios-heart"></i></div>
   </td-cards>
+    
    </ion-content>
 </ion-view>
 

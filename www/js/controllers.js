@@ -203,12 +203,13 @@ angular.module('starter.controllers', [])
 
   $scope.showAlert = function () {
     var confirmPopup = $ionicPopup.confirm({
-    title: 'Watch out!',
-    template: 'You are about to loose your current suggestions and play again. Sure?',
-    okText: 'Yep!',
-    okType: 'button button-light',
-    cancelText: 'Nop!',
-    cancelType: 'button button-light'
+    title: 'Warning',
+    template: 'You are about to loose your current suggestions to play again. Would you like to start again from the beginning?',
+    cancelText: 'Not yet',
+    cancelType: 'button button-light',
+    okText: 'Sure!',
+    okType: 'button button-light'
+    
     });
       confirmPopup.then(function (res) {
         if(res) {
@@ -225,7 +226,7 @@ angular.module('starter.controllers', [])
   
    $scope.show = function(){
   $ionicLoading.show({
-    template: '<p>Loading Spanish Movies...</p><ion-spinner class="spinner-stable"></ion-spinner>'
+    template: '<p>Loading Suggestions...</p><ion-spinner class="spinner-stable"></ion-spinner>'
   });
   };
   

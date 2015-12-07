@@ -25,11 +25,18 @@ ion-nav-back-button,
   font-family: "Nunito", "Roboto", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   font-weight: 300;
   color: $stable !important;
+  font-size: 26px;
 }
+
+
 .bar.bar-dark {
   color: $stable;
   border-color: #EAF6F3 !important;
   background-color: #EAF6F3 !important;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+
   .bar.bar-dark .title {
     color: $stable;
     background-color: #EAF6F3 !important;
@@ -41,7 +48,7 @@ ion-nav-back-button,
     display: block;
     margin: 0 auto; 
     margin-top: 8px;
-    height: 27px;
+    height: 28px;
 }
 
 ion-content {
@@ -60,50 +67,55 @@ background-color: rgba(255, 255, 255, 0.5);
 .tutorial {
   max-width:500px;
   margin: 0 auto;
-img{
-padding-top: 5%;
+  height: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: space-around;  
+  img{
 display: block;
 margin: 0 auto;
-width: 335px;
-max-width: 500px;}
-p{
+width: 80%;
+max-width: 300px;}
+  p{
 text-align: center;
-padding: 5%;
 margin: 0 auto;
 font-size: 17px;
 font-family: "Nunito";
 font-weight: 100;
 color: $balanced;
-padding-top: 15%;}
-}
-.bar-footer {
-background-color: white;
-background-position: none;
-}
-
-
-//details-template
-.item-image {
-  width: 100%;
-  max-width: 500px;
-  margin-bottom: -5px;
-  img {
-    width: 100%;
-    max-width: 500px;
+padding-left: 10%;
+padding-right: 10%;
+  }
+  button {
+margin: 10px;
   }
 }
 
-
 //details template
 .list-inset {
-  margin: 0px;
+    margin: 0px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
   .item {
     background-color: white;
     border-color: white;
     padding-bottom: 5px;
     img{
-    max-height: 25px;
-    max-width: 25px;
+    max-height: 20px;
+    max-width: 20px;
     top: 20px;
     left: 15px;
     border-radius: 0% !important;}
@@ -162,6 +174,7 @@ background-position: none;
 //likes-template
 td-cards {
   display: block;
+  position: relative;
 }
 td-card {
   position: absolute;
@@ -170,7 +183,12 @@ td-card {
   box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.1);
   border-radius: 6px;
   padding: 10px;
-  margin: 20px;
+  margin: auto;
+  max-width: 350px;
+  top: 20px;
+  left: 20px;
+  right: 20px;
+  
   .swipe-card {
     .image {
       position: relative;
@@ -185,7 +203,7 @@ td-card {
       float: left;
       padding-top: 10px;
       img {
-      width: 46%;
+      width: 26%;
       float: left; 
       }
      
@@ -196,12 +214,8 @@ td-card {
       background: none;
       padding-top: 8px;
       img {
-      width: 50%;
+      width: 29%;
       float: right;
-      }
-     
-      &.activated {
-        color: red;
       }
     }
 }
@@ -214,7 +228,7 @@ td-card {
   position: absolute;
   margin-top: 59%;
   margin-left: 41%;
-  color: $stable;
+  color: white;
   font-size: 100px;
   transform: scale(0.7);
   opacity: 0;
@@ -229,10 +243,23 @@ td-card {
 }
 
 
-.button.button-block {
-margin: 0px !important;
+
+//Popup
+.popup {
+
+  .popup-head{
+  font-family: "Roboto";
+  }
+  .popup-body{
+  font-family: "Roboto";
+  text-align: center;
+  }
+  .popup-buttons {
+    .button{
+    font-family: "Roboto";
+    }
+  }
 
 }
-
 
 

@@ -20,7 +20,7 @@ var app = angular.module('starter', ['ionic', 'ionic.contrib.ui.tinderCards', 'f
 })
 
 
-.config(function($stateProvider, $urlRouterProvider) {
+.config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
 
   $stateProvider
     
@@ -52,6 +52,9 @@ var app = angular.module('starter', ['ionic', 'ionic.contrib.ui.tinderCards', 'f
   });
   
   $urlRouterProvider.otherwise('/landing');
+  
+  $ionicConfigProvider.backButton.text(null);
+  $ionicConfigProvider.backButton.previousTitleText(false);
   
 
 })

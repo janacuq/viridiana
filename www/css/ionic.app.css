@@ -7690,12 +7690,16 @@ body {
 html, ion-nav-bar, ion-nav-back-button, .button-clear, .button-icon, .ion-ios-arrow-left, .ion-android-arrow-back, .ion-arrow-left-c {
   font-family: "Nunito", "Roboto", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   font-weight: 300;
-  color: #FF3F00 !important; }
+  color: #FF3F00 !important;
+  font-size: 26px; }
 
 .bar.bar-dark {
   color: #FF3F00;
   border-color: #EAF6F3 !important;
-  background-color: #EAF6F3 !important; }
+  background-color: #EAF6F3 !important;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto; }
   .bar.bar-dark .bar.bar-dark .title {
     color: #FF3F00;
     background-color: #EAF6F3 !important; }
@@ -7704,7 +7708,7 @@ html, ion-nav-bar, ion-nav-back-button, .button-clear, .button-icon, .ion-ios-ar
   display: block;
   margin: 0 auto;
   margin-top: 8px;
-  height: 27px; }
+  height: 28px; }
 
 ion-content {
   background-color: white;
@@ -7718,44 +7722,52 @@ ion-content {
 
 .tutorial {
   max-width: 500px;
-  margin: 0 auto; }
+  margin: 0 auto;
+  height: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: space-around; }
   .tutorial img {
-    padding-top: 5%;
     display: block;
     margin: 0 auto;
-    width: 335px;
-    max-width: 500px; }
+    width: 80%;
+    max-width: 300px; }
   .tutorial p {
     text-align: center;
-    padding: 5%;
     margin: 0 auto;
     font-size: 17px;
     font-family: "Nunito";
     font-weight: 100;
     color: #B0AFAF;
-    padding-top: 15%; }
-
-.bar-footer {
-  background-color: white;
-  background-position: none; }
-
-.item-image {
-  width: 100%;
-  max-width: 500px;
-  margin-bottom: -5px; }
-  .item-image img {
-    width: 100%;
-    max-width: 500px; }
+    padding-left: 10%;
+    padding-right: 10%; }
+  .tutorial button {
+    margin: 10px; }
 
 .list-inset {
-  margin: 0px; }
+  margin: 0px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto; }
   .list-inset .item {
     background-color: white;
     border-color: white;
     padding-bottom: 5px; }
     .list-inset .item img {
-      max-height: 25px;
-      max-width: 25px;
+      max-height: 20px;
+      max-width: 20px;
       top: 20px;
       left: 15px;
       border-radius: 0% !important; }
@@ -7801,7 +7813,8 @@ ion-content {
       color: #181715; }
 
 td-cards {
-  display: block; }
+  display: block;
+  position: relative; }
 
 td-card {
   position: absolute;
@@ -7810,7 +7823,11 @@ td-card {
   box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.1);
   border-radius: 6px;
   padding: 10px;
-  margin: 20px; }
+  margin: auto;
+  max-width: 350px;
+  top: 20px;
+  left: 20px;
+  right: 20px; }
   td-card .swipe-card .image {
     position: relative; }
     td-card .swipe-card .image img {
@@ -7821,7 +7838,7 @@ td-card {
     float: left;
     padding-top: 10px; }
     td-card .no-text img {
-      width: 46%;
+      width: 26%;
       float: left; }
   td-card .yes-text {
     float: right;
@@ -7829,10 +7846,8 @@ td-card {
     background: none;
     padding-top: 8px; }
     td-card .yes-text img {
-      width: 50%;
+      width: 29%;
       float: right; }
-    td-card .yes-text.activated {
-      color: red; }
 
 .animated-heart {
   display: none; }
@@ -7842,7 +7857,7 @@ td-card {
   position: absolute;
   margin-top: 59%;
   margin-left: 41%;
-  color: #FF3F00;
+  color: white;
   font-size: 100px;
   transform: scale(0.7);
   opacity: 0;
@@ -7862,5 +7877,10 @@ td-card {
     transform: scale(.8);
     opacity: 0; } }
 
-.button.button-block {
-  margin: 0px !important; }
+.popup .popup-head {
+  font-family: "Roboto"; }
+.popup .popup-body {
+  font-family: "Roboto";
+  text-align: center; }
+.popup .popup-buttons .button {
+  font-family: "Roboto"; }

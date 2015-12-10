@@ -185,13 +185,15 @@ angular.module('starter.controllers', [])
 
 }])
 
-.controller('DetailsCtrl', function ($scope, $stateParams, Selection) {
+.controller('DetailsCtrl', ['$scope', '$stateParams', 'Selection', '$window', function ($scope, $stateParams, Selection, $window) {
   var imdbID = $stateParams.imdbID;
   $scope.spanish = Selection.get($stateParams.imdbID);
  
-  
+  $scope.reviews = function(ref){
+  $window.open(this.ref,'_system', 'location=yes');return false;
+  }
  
-})
+}])
 
 
 

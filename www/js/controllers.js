@@ -60,7 +60,15 @@ angular.module('starter.controllers', [])
          var randomKey = Object.keys(allMovies)[rand];
          var movie = allMovies[randomKey];
          updateMovieWithPosterPath(movie);
-         tenMovies.push(movie);
+         function exists(m){
+               return m.imdbID === movie.imdbID;
+            }
+          var existingMovie = tenMovies.find(exists);
+             if (!existingMovie){
+              tenMovies.push(movie);
+            } else {
+              randomKey++;
+            }
          $scope.start();
        });
      }
@@ -123,7 +131,7 @@ angular.module('starter.controllers', [])
    $scope.$on('removeCardLeft', function(event, element, card) {
        
        index = document.querySelector('td-cards').querySelectorAll("td-card").length - 1;         
-     
+     console.log(index);
       if ( index === 0  && counter > 1 ) {
       $scope.final_movies = liked_movies;
       $scope.pass_data();

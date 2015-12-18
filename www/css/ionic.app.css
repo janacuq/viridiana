@@ -7724,7 +7724,6 @@ ion-content {
   max-width: 500px;
   margin: 0 auto;
   height: 100%;
-  display: -webkit-box;
   display: -webkit-flexbox;
   display: -ms-flexbox;
   display: flex;

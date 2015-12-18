@@ -57,7 +57,6 @@ angular.module('starter.controllers', [])
          var movie = allMovies[randomKey];
          var m = movie.imdbID;
          updateMovieWithPosterPath(movie);
-        
        var existingMovie = values.indexOf(m);
             if (existingMovie < 0){
               tenMovies.push(movie);
@@ -188,7 +187,7 @@ angular.module('starter.controllers', [])
   $scope.spanish = Selection.get($stateParams.imdbID);
  
   $scope.reviews = function(ref){
-  $window.open(this.ref,'_system', 'location=yes');return false;
+  cordova.InnAppBrowser.open(this.ref,'_system', 'location=yes');return false;
   }
  
 }])
@@ -202,10 +201,10 @@ angular.module('starter.controllers', [])
   $scope.showAlert = function () {
     var confirmPopup = $ionicPopup.confirm({
     title: 'Warning',
-    template: 'You are about to loose your current suggestions to play again. Would you like to start again from the beginning?',
+    template: 'You are about to loose your current suggestions. Would you like to start again from the beginning?',
     cancelText: 'Not yet',
     cancelType: 'button button-light',
-    okText: 'Sure!',
+    okText: 'Yes!',
     okType: 'button button-light'
     
     });
@@ -238,6 +237,7 @@ angular.module('starter.controllers', [])
   };
   
   $scope.movies = [];
+  values = [];
 
   $scope.genres = Selection.getGenres();
   var topGenres = [];   
@@ -264,13 +264,22 @@ angular.module('starter.controllers', [])
         var randomKey = Object.keys(allMovies)[rand];
         var movie = allMovies[randomKey];
         updateMovieWithPosterPath(movie);
+        var m = movie.imdbID;
+        var existingMovie = values.indexOf(m);
+        console.log(existingMovie);
+            if (existingMovie < 0){
         $scope.movies.push(movie);
         $scope.$apply();
         Selection.addSpanish($scope.movies);
-           $scope.hide($ionicLoading); 
+        values.push(m);
+              } else {
+                rand++;
+              }
+             $scope.hide($ionicLoading);
         }); 
-       
+    
     } 
+          
 
 };
   randomMovies(topGenres);

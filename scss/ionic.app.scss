@@ -69,21 +69,21 @@ background-color: rgba(255, 255, 255, 0.5);
   margin: 0 auto;
   height: 100%;
   display: -webkit-box;
-  display: -webkit-flex;
+  display: -webkit-flexbox;
   display: -ms-flexbox;
   display: flex;
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
+  -webkit-justify-content: space-around;
+  -ms-justify-content: space-around;
   justify-content: space-around;  
+
   img{
 display: block;
 margin: 0 auto;
 width: 80%;
-max-width: 300px;}
+}
   p{
 text-align: center;
 margin: 0 auto;
@@ -262,4 +262,11 @@ td-card {
 
 }
 
+@media (max-height: 567px) {
 
+  td-card {
+    top: 10px;
+   left: 35px;
+  right: 35px;;
+  }
+}

@@ -7725,21 +7725,19 @@ ion-content {
   margin: 0 auto;
   height: 100%;
   display: -webkit-box;
-  display: -webkit-flex;
+  display: -webkit-flexbox;
   display: -ms-flexbox;
   display: flex;
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
+  -webkit-justify-content: space-around;
+  -ms-justify-content: space-around;
   justify-content: space-around; }
   .tutorial img {
     display: block;
     margin: 0 auto;
-    width: 80%;
-    max-width: 300px; }
+    width: 80%; }
   .tutorial p {
     text-align: center;
     margin: 0 auto;
@@ -7884,3 +7882,9 @@ td-card {
   text-align: center; }
 .popup .popup-buttons .button {
   font-family: "Roboto"; }
+
+@media (max-height: 567px) {
+  td-card {
+    top: 10px;
+    left: 35px;
+    right: 35px; } }

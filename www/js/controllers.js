@@ -1,28 +1,33 @@
 angular.module('starter.controllers', [])
 
 .controller('LandingCtrl', function ($scope, $ionicHistory) {
-
+//disable back button on landing page
  $ionicHistory.nextViewOptions({
          disableAnimate: true,
          disableBack: true
+});
+  
+  window.addEventListener("orientationchange", function(){
+    console.log('Orientation changed to ' + screen.orientation);
+    screen.lockOrientation('portrait');
 });
   
 })
 
 .controller('LikesCtrl', ["$scope", "$firebaseArray", "$location", "Selection", "$http", "$ionicModal", "$ionicHistory","$ionicLoading", function ($scope, $firebaseArray, $location, Selection, $http, $ionicModal, $ionicHistory, $ionicLoading) {
 
-
+// spinner functions
   $scope.show = function(){
     $ionicLoading.show({
     template: '<p>Loading Movies...</p><ion-spinner class="spinner-stable"></ion-spinner>'
     });
   };
- 
   $scope.hide = function(){
     $ionicLoading.hide();
   };
 
- $scope.show($ionicLoading);
+ $scope.show($ionicLoading);  //initialize spinner
+  
  var ref2 = new Firebase("https://viridiana.firebaseio.com/likes");
  $scope.mostrar = false;
  $scope.data = $firebaseArray(ref2); //array of all likes movies
@@ -30,7 +35,8 @@ angular.module('starter.controllers', [])
  var counter = 0;
  var tenMovies = [];
  var liked_movies = [];
- var movieGenres = ["genres/War", "genres/Thriller", "genres/Romance", "genres/Animation", "genres/Crime", "genres/Fantasy", "genres/Drama", "genres/Adventure"];
+  var values = [];
+ var movieGenres = ["genres/War", "genres/Thriller", "genres/Romance", "genres/Biography", "genres/Crime", "genres/Comedy", "genres/Drama", "genres/Adventure", "genres/Action", "genres/Horror"];
 
   
 
@@ -43,22 +49,22 @@ angular.module('starter.controllers', [])
 
   $scope.randomMovies = function (array) {
      for (var i = 0; i < array.length; i++) {
-       var queryRef = ref2.orderByChild(array[i]).equalTo(true).limitToFirst(30);
+       var queryRef = ref2.orderByChild(array[i]).equalTo(true).limitToFirst(50);
        queryRef.on("value", function (snapshot) {
          var allMovies = snapshot.val();
          var rand = Math.floor(Math.random() * snapshot.numChildren());
          var randomKey = Object.keys(allMovies)[rand];
          var movie = allMovies[randomKey];
+         var m = movie.imdbID;
          updateMovieWithPosterPath(movie);
-         function exists(m){
-               return m.imdbID === movie.imdbID;
-            }
-          var existingMovie = tenMovies.find(exists);
-             if (!existingMovie){
+        
+       var existingMovie = values.indexOf(m);
+            if (existingMovie < 0){
               tenMovies.push(movie);
-            } else {
-              randomKey++;
-            }
+               values.push(m);
+              } else {
+                rand++;
+              }
          $scope.start();
        });
      }
@@ -91,16 +97,13 @@ angular.module('starter.controllers', [])
   $scope.randomMovies(movieGenres);
   
   $scope.start = function(){
-   
-  $scope.cards = Array.prototype.slice.call(tenMovies, 0);
+    $scope.cards = Array.prototype.slice.call(tenMovies, 0);
            $scope.hide($ionicLoading);
-
   };
   
    $scope.cardDestroyed = function(index) {
     $scope.cards.splice(index, 1);
-    
-  };
+   };
  
   $scope.cardSwipedLeft = function(index) {
     
@@ -117,7 +120,6 @@ angular.module('starter.controllers', [])
     }
   };
   
-  
    $scope.$on('removeCardLeft', function(event, element, card) {
        
        index = document.querySelector('td-cards').querySelectorAll("td-card").length - 1;         
@@ -127,14 +129,12 @@ angular.module('starter.controllers', [])
       $scope.pass_data();
     } else if( index === 0  && counter <= 1 ) {
       tenMovies = [];
-      
+      $scope.show($ionicLoading);
       $scope.randomMovies(movieGenres);
-       $scope.show($ionicLoading);
+       
       $scope.start();
     }
-     
-     
-  });
+   });
    
   
     $scope.$on('removeCardRight', function(event, element, card) {
@@ -152,9 +152,7 @@ angular.module('starter.controllers', [])
       tenMovies = [];
       $scope.randomMovies(movieGenres);
       $scope.start();
-    }
-     
-     
+    }   
   });
 
     setTimeout(function(){
@@ -224,7 +222,7 @@ angular.module('starter.controllers', [])
 .controller('SuggestionsCtrl', function ($scope, Selection, $http, $timeout, $ionicLoading){
     
   
-   $scope.show = function(){
+  $scope.show = function(){
   $ionicLoading.show({
     template: '<p>Loading Suggestions...</p><ion-spinner class="spinner-stable"></ion-spinner>'
   });
@@ -235,12 +233,8 @@ angular.module('starter.controllers', [])
   location.reload();
   };
  
-  
-
-  
   $scope.hide = function(){
-  
-    $ionicLoading.hide();
+   $ionicLoading.hide();
   };
   
   $scope.movies = [];

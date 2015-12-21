@@ -136,6 +136,24 @@ margin: 10px;
     }
   }
 }
+.logo {
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+  img {
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  }
+  p{
+  font-size: 0.4rem;
+  text-align: center;
+  color: $royal;
+  }
+
+}
 
 //suggestions-template
 .padding .card {

@@ -7787,14 +7787,14 @@ ion-content {
   max-width: 400px;
   margin-left: auto;
   margin-right: auto;
-  width: 80%; }
+  width: 60%; }
   .logo img {
-    width: 50%;
+    width: 40%;
     margin-left: auto;
     margin-right: auto;
     display: block; }
   .logo p {
-    font-size: 0.4rem;
+    font-size: 0.3rem;
     text-align: center;
     color: #181715; }
 

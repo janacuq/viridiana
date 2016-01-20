@@ -1,13 +1,13 @@
-<ion-view title='<img class="title-image" src="../img/ionictitle.png" />'>
+<ion-view title='<img class="title-image" src="img/ionictitle.png" />'>
   <ion-content>
   
   <td-cards>
     <td-card ng-repeat="card in cards" on-destroy="cardDestroyed($index)"  on-swipe-left="cardSwipedLeft($index)" on-swipe-right="cardSwipedRight($index)" on-partial-swipe="cardPartialSwipe(amt)" class="card-{{$index}}">
       <div class="image">
-      <img class="animated bounceIn" src="../img/white.png" ng-src = "{{card.posterPath}}"/>
+      <img class="animated bounceIn" src="img/white.png" ng-src = "{{card.posterPath}}"/>
       </div>
-       <button class="no-text" ng-click="onClickTransitionOutLeft(card)"><img src="../img/cross.png"/></button>
-      <button class="yes-text" ng-click="onClickTransitionOutRight(card)"><img src="../img/heart.png"/></button>
+       <button class="no-text" ng-click="onClickTransitionOutLeft(card)"><img src="img/cross.png"/></button>
+      <button class="yes-text" ng-click="onClickTransitionOutRight(card)"><img src="img/heart.png"/></button>
     </td-card>   
     <div class="animated-heart" ng-class="{'liked': mostrar}"><i class="ion-ios-heart"></i></div>
   </td-cards>

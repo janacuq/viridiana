@@ -65,10 +65,12 @@ angular.module('starter.controllers', [])
                 rand++;
               }
          $scope.start();
+         $scope.hide($ionicLoading);
        });
+       
      }
      return tenMovies;   
-   
+    
    };
   
 
@@ -97,7 +99,7 @@ angular.module('starter.controllers', [])
   
   $scope.start = function(){
     $scope.cards = Array.prototype.slice.call(tenMovies, 0);
-           $scope.hide($ionicLoading);
+           
   };
   
    $scope.cardDestroyed = function(index) {
@@ -187,7 +189,7 @@ angular.module('starter.controllers', [])
   $scope.spanish = Selection.get($stateParams.imdbID);
  
   $scope.reviews = function(ref){
-  cordova.InnAppBrowser.open(this.ref,'_system', 'location=yes');return false;
+  window.open(this.ref,'_system', 'location=yes');return false;
   }
  
 }])
